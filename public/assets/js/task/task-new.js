@@ -1,0 +1,1 @@
+$((function(e){$(".fc-datepicker").datepicker({dateFormat:"dd M yy",monthNamesShort:["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Aug","Sep","Okt","Nov","Dec"],zIndex:1}),$(".summernote").summernote({placeholder:"",tabsize:1,height:300}),$(".select2").select2({minimumResultsForSearch:1/0,width:"100%"})}));

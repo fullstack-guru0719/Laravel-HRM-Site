@@ -1,0 +1,1 @@
+$((function(e){$(".select2-show-search").select2({minimumResultsForSearch:"",placeholder:"Search",width:"100%"}),$(".timepicker").timepicker({showInputs:!1}),$("#colorpicker").spectrum({color:"#000"}),$("#showAlpha").spectrum({showPalette:!0,showSelectionPalette:!0,showInput:!0,preferredFormat:"hex",color:"#ff0000"})}));

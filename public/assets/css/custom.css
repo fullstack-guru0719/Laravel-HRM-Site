@@ -1,0 +1,14 @@
+.with-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.card h4 {
+    margin-bottom: 2px !important;
+    margin-top: 16px !important;
+}
+
+
+.ui-draggable, .ui-droppable {
+    background-position: top;
+}

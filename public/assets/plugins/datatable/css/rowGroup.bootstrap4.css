@@ -1,0 +1,16 @@
+table.dataTable tr.dtrg-group td {
+	background-color: #ebeff8
+}
+table.dataTable tr.dtrg-group.dtrg-level-0 td {
+	font-weight: bold
+}
+table.dataTable tr.dtrg-group.dtrg-level-1 td, table.dataTable tr.dtrg-group.dtrg-level-2 td {
+	background-color: #ebeff8;
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
+	padding-left: 2em;
+	font-size: 0.9em
+}
+table.dataTable tr.dtrg-group.dtrg-level-2 td {
+	background-color: #ebeff8
+}

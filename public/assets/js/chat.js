@@ -1,0 +1,1 @@
+$((function(){"use strict";new PerfectScrollbar("#ChatList",{useBothWheelAxes:!1,suppressScrollX:!1}),new PerfectScrollbar("#ChatList2",{useBothWheelAxes:!1,suppressScrollX:!1}),new PerfectScrollbar("#ChatBody",{useBothWheelAxes:!1,suppressScrollX:!1}),$('[data-toggle="tooltip"]').tooltip()}));

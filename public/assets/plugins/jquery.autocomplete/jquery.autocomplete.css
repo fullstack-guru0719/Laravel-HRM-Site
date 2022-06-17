@@ -1,0 +1,72 @@
+.xdsoft_autocomplete,
+.xdsoft_autocomplete div,
+.xdsoft_autocomplete span{
+/*	-moz-box-sizing: border-box !important;
+	box-sizing: border-box !important;*/
+}
+
+.xdsoft_autocomplete{
+display:inline;
+position:relative;
+word-spacing: normal;
+text-transform: none;
+text-indent: 0px;
+text-shadow: none;
+text-align: start;
+}
+
+.xdsoft_autocomplete .xdsoft_input{
+	position:relative;
+	z-index:2;
+}
+.xdsoft_autocomplete .xdsoft_autocomplete_dropdown{
+	position:absolute;
+	border: 1px solid #e9ebfa;
+	border-top-color: #e9ebfa;
+	box-shadow: 0px 16px 18px rgba(6, 10, 48 , .1);
+	-webkit-box-shadow: 0px 16px 18px rgba(6, 10, 48 , .1);
+	cursor: default;
+	display:none;
+	z-index: 1001;
+	margin-top:-1px;
+	background-color:#fff;
+	min-width:100%;
+	overflow-x: auto;
+    height: 200px;
+}
+.xdsoft_autocomplete .xdsoft_autocomplete_hint{
+	position:absolute;
+	z-index:1;
+	color:#e9ebfa !important;
+	-webkit-text-fill-color:#e9ebfa !important;
+	text-fill-color:#e9ebfa  !important;
+	overflow:hidden !important;
+	white-space: pre  !important;
+	box-shadow: 0px 16px 18px rgba(6, 10, 48 , .1);
+}
+
+.xdsoft_autocomplete .xdsoft_autocomplete_hint span{
+	color:transparent;
+	opacity: 0.0;
+}
+
+.xdsoft_autocomplete .xdsoft_autocomplete_dropdown > .xdsoft_autocomplete_copyright{
+	color:#e9ebfa;
+	font-size:10px;
+	text-decoration:none;
+	right:5px;
+	position:absolute;
+	margin-top:-15px;
+	z-index:1002;
+}
+.xdsoft_autocomplete .xdsoft_autocomplete_dropdown > div{
+	background:#fff;
+	white-space: nowrap;
+	cursor: pointer;
+	line-height: 1.5em;
+	padding: 0.5rem 1.5rem;
+}
+.xdsoft_autocomplete .xdsoft_autocomplete_dropdown > div.active{
+	background: #f4f5fb;
+	color: #313e6a;
+}

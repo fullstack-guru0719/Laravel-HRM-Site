@@ -1,0 +1,1 @@
+$(document).on("change",":file",(function(){var e=$(this),t=e.get(0).files?e.get(0).files.length:1,l=e.val().replace(/\\/g,"/").replace(/.*\//,"");e.trigger("fileselect",[t,l])})),$(document).ready((function(){$(":file").on("fileselect",(function(e,t,l){var n=$(this).parents(".input-group").find(":text"),i=t>1?t+" files selected":l;n.length?n.val(i):i&&alert(i)}))}));

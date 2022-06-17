@@ -1,0 +1,1 @@
+$((function(){"use strict";$("#myModal").modal("show"),setTimeout((function(e){$("#myModal").modal("hide")}),2e7),setInterval((function(){var e=document.getElementById("custom-bar");e.value<e.max&&(e.value+=10)}),1e3)}));
