@@ -86,7 +86,7 @@
                     <span class="side-menu__label">HRM</span><i class="angle fa fa-angle-right"></i>
                 </a>
                 <ul class="slide-menu">
-                    <li><a href="{{url('hrm/index')}} " class="slide-item">Dashboard</a></li>
+                    {{-- <li><a href="{{url('hrm/index')}} " class="slide-item">Dashboard</a></li> --}}
                     <li><a href="{{url('hrm/department/index')}} " class="slide-item">Department</a></li>
                     <li class="sub-slide">
                         <a class="sub-side-menu__item" data-toggle="sub-slide" href="#"><span class="sub-side-menu__label">Employees</span><i class="sub-angle fa fa-angle-right"></i></a>
@@ -111,9 +111,7 @@
                         </ul>
                     </li>
                     <li><a href="{{url('hrm/hr-award')}} " class="slide-item">Awards</a></li>
-                    <li><a href="{{url('hrm/hr-holiday')}} " class="slide-item">Holidays</a></li>
                     <li><a href="{{url('hrm/hr-notice')}} " class="slide-item">Notice Board</a></li>
-                    <li><a href="{{url('hrm/hr-expenses')}} " class="slide-item">Expenses</a></li>
                     <li class="sub-slide">
                         <a class="sub-side-menu__item" data-toggle="sub-slide" href="#"><span class="sub-side-menu__label">Payroll</span><i class="sub-angle fa fa-angle-right"></i></a>
                         <ul class="sub-slide-menu">
@@ -122,8 +120,20 @@
                             <li><a class="sub-slide-item" href="{{url('hrm/payroll/hr-editpayroll')}} ">Edit Payroll</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{url('hrm/hr-events')}} " class="slide-item">Events</a></li>
-                    <li><a href="{{url('hrm/hr-settings')}} " class="slide-item">Settings</a></li>
+                    <li class="sub-slide">
+                        <a class="sub-side-menu__item" data-toggle="sub-slide" href="#">
+                            <span class="sub-side-menu__label">Job Dashboard</span><i class="sub-angle fa fa-angle-right"></i>
+                        </a>
+                        <ul class="sub-slide-menu">
+                            <li><a href="{{url('job/index')}} " class="slide-item">Dashboard</a></li>
+                            <li><a href="{{url('job/job-list')}} " class="slide-item">Job Lists</a></li>
+                            <li><a href="{{url('job/job-view')}} " class="slide-item">Job View</a></li>
+                            <li><a href="{{url('job/job-application')}} " class="slide-item">Job Applications</a></li>
+                            <li><a href="{{url('job/job-apply')}} " class="slide-item">Apply Job</a></li>
+                            <li><a href="{{url('job/job-new')}} " class="slide-item">New Job</a></li>
+                            <li><a href="{{url('job/job-user')}} " class="slide-item">User Profile</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li class="slide">
@@ -145,7 +155,7 @@
                         <span class="side-menu__label">HRM</span><i class="angle fa fa-angle-right"></i>
                     </a>
                     <ul class="slide-menu">
-                        <li><a href="{{url('hrm/index')}} " class="slide-item">Dashboard</a></li>
+                        {{-- <li><a href="{{url('hrm/index')}} " class="slide-item">Dashboard</a></li> --}}
                         <li><a href="{{url('hrm/department/index')}} " class="slide-item">Department</a></li>
                         <li class="sub-slide">
                             <a class="sub-side-menu__item" data-toggle="sub-slide" href="#"><span class="sub-side-menu__label">Request Leave</span><i class="sub-angle fa fa-angle-right"></i></a>

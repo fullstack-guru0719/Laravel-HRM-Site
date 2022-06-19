@@ -1,14 +1,12 @@
-@extends('layouts.app')
-
-@section('styles')
+<?php $__env->startSection('styles'); ?>
 
     <!-- INTERNAL Data table css -->
-    <link href="{{URL::asset('assets/plugins/datatable/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
-    <link href="{{URL::asset('assets/plugins/datatable/responsive.bootstrap4.min.css')}}" rel="stylesheet" />
+    <link href="<?php echo e(URL::asset('assets/plugins/datatable/css/dataTables.bootstrap4.min.css')); ?>" rel="stylesheet" />
+    <link href="<?php echo e(URL::asset('assets/plugins/datatable/responsive.bootstrap4.min.css')); ?>" rel="stylesheet" />
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <!--Page header-->
     <div class="page-header d-xl-flex d-block">
@@ -18,7 +16,7 @@
         <div class="page-rightheader ml-md-auto">
             <div class="align-items-end flex-wrap my-auto right-content breadcrumb-right">
                 <div class="btn-list">
-                    <a href="{{url('hrm/employee/hr-addemployee')}}" class="btn btn-primary mr-3">Add New Employee</a>
+                    <a href="<?php echo e(url('hrm/employee/hr-addemployee')); ?>" class="btn btn-primary mr-3">Add New Employee</a>
                 </div>
             </div>
         </div>
@@ -121,7 +119,7 @@
                                 <td>01</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/1.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/1.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Faith Harris</h6>
                                             <p class="text-muted mb-0 fs-12">faith@gmail.com</p>
@@ -136,7 +134,7 @@
                                 <td>3 yrs 1 mons 13 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -146,7 +144,7 @@
                                 <td>02</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/9.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/9.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Austin Bell</h6>
                                             <p class="text-muted mb-0 fs-12">austin@gmail.com</p>
@@ -161,7 +159,7 @@
                                 <td>3 yrs 0 mons 25 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -171,7 +169,7 @@
                                 <td>03</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/2.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/2.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Maria Bower</h6>
                                             <p class="text-muted mb-0 fs-12">maria@gmail.com</p>
@@ -186,7 +184,7 @@
                                 <td>2 yrs 3 mons 23 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -196,7 +194,7 @@
                                 <td>04</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/10.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/10.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Peter Hill</h6>
                                             <p class="text-muted mb-0 fs-12">peter@gmail.com</p>
@@ -211,7 +209,7 @@
                                 <td>1 yrs 0 mons 25 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -221,7 +219,7 @@
                                 <td>05</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/3.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/3.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Victoria	Lyman</h6>
                                             <p class="text-muted mb-0 fs-12">victoria@gmail.com</p>
@@ -236,7 +234,7 @@
                                 <td>0 yrs 0 mons 20 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -246,7 +244,7 @@
                                 <td>06</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/11.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/11.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Adam	Quinn</h6>
                                             <p class="text-muted mb-0 fs-12">adam@gmail.com</p>
@@ -261,7 +259,7 @@
                                 <td>0 yrs 8 mons 20 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -271,7 +269,7 @@
                                 <td>07</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/4.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/4.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Melanie Coleman</h6>
                                             <p class="text-muted mb-0 fs-12">melanie@gmail.com</p>
@@ -286,7 +284,7 @@
                                 <td>1 yrs 11 mons 10 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -296,7 +294,7 @@
                                 <td>08</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/12.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/12.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Max	Wilson</h6>
                                             <p class="text-muted mb-0 fs-12">max@gmail.com</p>
@@ -311,7 +309,7 @@
                                 <td>0 yrs 9 mons 20 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -321,7 +319,7 @@
                                 <td>09</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/5.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/5.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Amelia Russell</h6>
                                             <p class="text-muted mb-0 fs-12">amelia@gmail.com</p>
@@ -336,7 +334,7 @@
                                 <td>2 yrs 9 mons 25 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -346,7 +344,7 @@
                                 <td>10</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/13.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/13.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Justin Metcalfe</h6>
                                             <p class="text-muted mb-0 fs-12">justin@gmail.com</p>
@@ -361,7 +359,7 @@
                                 <td>3 yrs 1 mons 13 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -371,7 +369,7 @@
                                 <td>11</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/6.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/6.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Sophie Anderson</h6>
                                             <p class="text-muted mb-0 fs-12">faith@gmail.com</p>
@@ -386,7 +384,7 @@
                                 <td>0 yrs 4 mons 0 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -396,7 +394,7 @@
                                 <td>12</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/14.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/14.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Ryan	Young</h6>
                                             <p class="text-muted mb-0 fs-12">ryan@gmail.com</p>
@@ -411,7 +409,7 @@
                                 <td>3 yrs 1 mons 13 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -421,7 +419,7 @@
                                 <td>13</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/7.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/7.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Jennifer	Hardacre</h6>
                                             <p class="text-muted mb-0 fs-12">jennifer@gmail.com</p>
@@ -436,7 +434,7 @@
                                 <td>1 yrs 2 mons 25 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -446,7 +444,7 @@
                                 <td>14</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/15.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/15.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Justin Parr</h6>
                                             <p class="text-muted mb-0 fs-12">justin@gmail.com</p>
@@ -461,7 +459,7 @@
                                 <td>0 yrs 01 mons 13 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -471,7 +469,7 @@
                                 <td>15</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/8.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/8.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Julia Hodges</h6>
                                             <p class="text-muted mb-0 fs-12">julia@gmail.com</p>
@@ -486,7 +484,7 @@
                                 <td>0 yrs 9 mons 21 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -496,7 +494,7 @@
                                 <td>16</td>
                                 <td>
                                     <div class="d-flex">
-                                        <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/16.jpg')}})"></span>
+                                        <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/16.jpg')); ?>)"></span>
                                         <div class="mr-3 mt-0 mt-sm-1 d-block">
                                             <h6 class="mb-1 fs-14">Michael Sutherland</h6>
                                             <p class="text-muted mb-0 fs-12">michael@gmail.com</p>
@@ -511,7 +509,7 @@
                                 <td>2 yrs 2 mons 10 days</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-primary btn-icon btn-sm"  href="{{url('hr-empview')}}">
+                                    <a class="btn btn-primary btn-icon btn-sm"  href="<?php echo e(url('hr-empview')); ?>">
                                         <i class="feather feather-edit" data-toggle="tooltip" data-original-title="View/Edit"></i>
                                     </a>
                                     <a class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" data-original-title="Delete"><i class="feather feather-trash-2"></i></a>
@@ -526,9 +524,9 @@
     </div>
     <!-- End Row-->
 
-@endsection('content')
+<?php $__env->stopSection(); ?>
 
-@section('modals')
+<?php $__env->startSection('modals'); ?>
 
     <!--Change password Modal -->
     <div class="modal fade"  id="changepasswordnmodal">
@@ -559,17 +557,19 @@
     </div>
     <!-- End Change password Modal  -->
 
-@endsection('modals')
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
 
     <!-- INTERNAL Data tables -->
-    <script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')}}"></script>
-    <script src="{{URL::asset('assets/plugins/datatable/dataTables.responsive.min.js')}}"></script>
-    <script src="{{URL::asset('assets/plugins/datatable/responsive.bootstrap4.min.js')}}"></script>
+    <script src="<?php echo e(URL::asset('assets/plugins/datatable/js/jquery.dataTables.min.js')); ?>"></script>
+    <script src="<?php echo e(URL::asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')); ?>"></script>
+    <script src="<?php echo e(URL::asset('assets/plugins/datatable/dataTables.responsive.min.js')); ?>"></script>
+    <script src="<?php echo e(URL::asset('assets/plugins/datatable/responsive.bootstrap4.min.js')); ?>"></script>
 
     <!-- INTERNAL Index js-->
-    <script src="{{URL::asset('assets/js/hr/hr-emp.js')}}"></script>
+    <script src="<?php echo e(URL::asset('assets/js/hr/hr-emp.js')); ?>"></script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\practice_by_++\Laravel-HRM-Site\resources\views/common_pages/hrm/employee/hr-emplist.blade.php ENDPATH**/ ?>

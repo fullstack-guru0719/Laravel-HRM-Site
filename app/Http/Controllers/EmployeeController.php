@@ -7,6 +7,8 @@ use App\Models\Employee;
 use App\Models\EmphotoFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+
 class EmployeeController extends Controller
 {
     
@@ -19,13 +21,18 @@ class EmployeeController extends Controller
 
     public function employee_new()
     {
-        return view('common_pages.hrm.employee.hr-addemployee');
+        $users = User::all();
+
+        return view('common_pages.hrm.employee.hr-addemployee',compact([
+            'users'
+        ]));
     }
 
     public function employee_create(Request $request)
     {
         $user = Auth::user();
-       
+        $first_name = $request->first_name;
+        $last_name = $request->last_name;
         $last_employee = Employee::all()->last();
         $current_index = 1;
         if($last_employee!=null){
@@ -44,7 +51,8 @@ class EmployeeController extends Controller
         $em_password = $request->em_password;
 
         Employee::create([
-            'user_id'=>$user->id,
+            'first_name'=>$first_name,
+            'last_name'=>$last_name,
             'phone_number'=>$phone_numebr,
             'contact_number'=>$contact_number,
             'birthday'=>$birthday,

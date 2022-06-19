@@ -12,15 +12,16 @@
 		<!-- Title -->
 		<title>DMS - HRM System</title>
 
-        @include('layouts.components.custom-styles')
+        <?php echo $__env->make('layouts.components.custom-styles', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 	</head>
 
 	<body>
 
-        @yield('content')
+        <?php echo $__env->yieldContent('content'); ?>
 
-        @include('layouts.components.custom-scripts')
+        <?php echo $__env->make('layouts.components.custom-scripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 	</body>
 </html>
+<?php /**PATH E:\practice_by_++\Laravel-HRM-Site\resources\views/layouts/custom-app.blade.php ENDPATH**/ ?>

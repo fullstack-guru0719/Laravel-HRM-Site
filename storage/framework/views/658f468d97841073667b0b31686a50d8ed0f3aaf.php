@@ -1,15 +1,13 @@
-@extends('layouts.app')
-
-@section('styles')
+<?php $__env->startSection('styles'); ?>
 
     <!-- INTERNAL Ratings css -->
-    <link rel="stylesheet" href="{{URL::asset('assets/plugins/rating/css/ratings.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('assets/plugins/rating/css/rating-themes.css')}}">
+    <link rel="stylesheet" href="<?php echo e(URL::asset('assets/plugins/rating/css/ratings.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(URL::asset('assets/plugins/rating/css/rating-themes.css')); ?>">
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <!--Page header-->
     <div class="page-header d-xl-flex d-block">
@@ -37,8 +35,8 @@
             <div class="panel-body tabs-menu-body hremp-tabs1 p-0">
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab5">
-                        <form method="POST" action="{{ url('hrm/employee/employee-create') }}" enctype="multipart/form-data">
-                            @csrf
+                        <form method="POST" action="<?php echo e(url('hrm/employee/employee-create')); ?>" enctype="multipart/form-data">
+                            <?php echo csrf_field(); ?>
                             <div class="card-body">
                                 <h4 class="mb-4 font-weight-bold">Basic</h4>
                                 <div class="form-group ">
@@ -210,20 +208,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="form-group mt-7">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <label class="form-label">Email Notification:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <label class="custom-switch">
-                                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description">On/Off</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div> --}}
+                                
                             </div>
                             <div class="card-footer text-right">
                                 <button type="submit" class="btn btn-primary">Save</button>
@@ -531,24 +516,26 @@
     </div>
     <!-- End Row-->
 
-@endsection('content')
+<?php $__env->stopSection(); ?>
 
-@section('modals')
+<?php $__env->startSection('modals'); ?>
 
 
 
-@endsection('modals')
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
 
     <!-- INTERNAl Rating js-->
-    <script src="{{URL::asset('assets/plugins/rating/js/jquery.barrating.js')}}"></script>
-    <script src="{{URL::asset('assets/plugins/rating/js/custom-ratings.js')}}"></script>
+    <script src="<?php echo e(URL::asset('assets/plugins/rating/js/jquery.barrating.js')); ?>"></script>
+    <script src="<?php echo e(URL::asset('assets/plugins/rating/js/custom-ratings.js')); ?>"></script>
 
     <!-- INTERNAL  Datepicker js -->
-    <script src="{{URL::asset('assets/plugins/date-picker/jquery-ui.js')}}"></script>
+    <script src="<?php echo e(URL::asset('assets/plugins/date-picker/jquery-ui.js')); ?>"></script>
 
     <!-- INTERNAL Index js-->
-    <script src="{{URL::asset('assets/js/hr/hr-empview.js')}}"></script>
+    <script src="<?php echo e(URL::asset('assets/js/hr/hr-empview.js')); ?>"></script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\practice_by_++\Laravel-HRM-Site\resources\views/common_pages/hrm/employee/hr-addemployee.blade.php ENDPATH**/ ?>

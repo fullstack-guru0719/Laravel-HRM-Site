@@ -46,13 +46,13 @@
 										<p class="text-dark mb-0">Don't have account?<a class="text-primary ml-1" href="{{ route('register') }}">Register</a></p>
 									</div>
 								</form>
-								<div class="card-body border-top-0 pb-6 pt-2">
+								{{-- <div class="card-body border-top-0 pb-6 pt-2">
 									<div class="text-center">
 										<span class="avatar brround mr-3 bg-primary-transparent text-primary"><i class="ri-facebook-line"></i></span>
 										<span class="avatar brround mr-3 bg-primary-transparent text-primary"><i class="ri-instagram-line"></i></span>
 										<span class="avatar brround mr-3 bg-primary-transparent text-primary"><i class="ri-twitter-line"></i></span>
 									</div>
-								</div>
+								</div> --}}
 							</div>
 						</div>
 					</div>
