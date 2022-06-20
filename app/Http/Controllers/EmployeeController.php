@@ -16,8 +16,12 @@ class EmployeeController extends Controller
     public function employee_list()
     {
         $employees = Employee::where('em_allowed',1)->get();
+        $male_employees = Employee::where('em_allowed',1)->where('gender','Male')->get();
+        $female_employees = Employee::where('em_allowed',1)->where('gender','Female')->get();
 
-        return view('common_pages.hrm.employee.hr-emplist',compact(['employees']));
+        return view('common_pages.hrm.employee.hr-emplist',compact([
+            'employees','male_employees','female_employees'
+        ]));
     }
 
 
@@ -39,10 +43,7 @@ class EmployeeController extends Controller
         $updated_log = $current_employee->updated_log .'deleted by '.$user->id.' / ';
         $current_employee->update(['em_allowed'=>0,'updated_log'=>$updated_log]);
         $employees = Employee::where('em_allowed',1)->get();
-
-        return view('common_pages.hrm.employee.hr-emplist',compact([
-            'employees'
-        ]));
+        return redirect()->back();
     }
 
     public function employee_new()

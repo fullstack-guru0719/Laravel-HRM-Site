@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-7">
                             <div class="mt-0 text-left"> <span class="font-weight-semibold">Total Employees</span>
-                                <h3 class="mb-0 mt-1 text-success">5,678</h3>
+                                <h3 class="mb-0 mt-1 text-success">{{ sizeof($employees) }}</h3>
                             </div>
                         </div>
                         <div class="col-5">
@@ -49,7 +49,7 @@
                     <div class="row">
                         <div class="col-7">
                             <div class="mt-0 text-left"> <span class="font-weight-semibold">Total Male Employees</span>
-                                <h3 class="mb-0 mt-1 text-primary">3,876</h3>
+                                <h3 class="mb-0 mt-1 text-primary">{{ sizeof($male_employees) }}</h3>
                             </div>
                         </div>
                         <div class="col-5">
@@ -65,7 +65,7 @@
                     <div class="row">
                         <div class="col-7">
                             <div class="mt-0 text-left"> <span class="font-weight-semibold">Total Female Employees</span>
-                                <h3 class="mb-0 mt-1 text-secondary">1,396</h3> </div>
+                                <h3 class="mb-0 mt-1 text-secondary">{{ sizeof($female_employees) }}</h3> </div>
                         </div>
                         <div class="col-5">
                             <div class="icon1 bg-secondary-transparent my-auto  float-right"> <i class="las la-female"></i> </div>
@@ -80,7 +80,7 @@
                     <div class="row">
                         <div class="col-7">
                             <div class="mt-0 text-left"> <span class="font-weight-semibold">Total New Employees</span>
-                                <h3 class="mb-0 mt-1 text-danger">398</h3> </div>
+                                <h3 class="mb-0 mt-1 text-danger"></h3> </div>
                         </div>
                         <div class="col-5">
                             <div class="icon1 bg-danger-transparent my-auto  float-right"> <i class="las la-user-friends"></i> </div>
