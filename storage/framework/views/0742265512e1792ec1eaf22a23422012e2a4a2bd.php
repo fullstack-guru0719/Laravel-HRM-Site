@@ -1,14 +1,12 @@
-@extends('layouts.app')
-
-@section('styles')
+<?php $__env->startSection('styles'); ?>
 
     <!-- INTERNAL Ratings css -->
-    <link rel="stylesheet" href="{{URL::asset('assets/plugins/rating/css/ratings.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('assets/plugins/rating/css/rating-themes.css')}}">
+    <link rel="stylesheet" href="<?php echo e(URL::asset('assets/plugins/rating/css/ratings.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(URL::asset('assets/plugins/rating/css/rating-themes.css')); ?>">
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <!--Page header-->
     <div class="page-header d-xl-flex d-block">
@@ -18,7 +16,7 @@
         <div class="page-rightheader ml-md-auto">
             <div class="align-items-end flex-wrap my-auto right-content breadcrumb-right">
                 <div class="btn-list">
-                    <a href="{{url('hrm/employee/hr-addemployee')}}" class="btn btn-primary mr-3">Add New Employee</a>
+                    <a href="<?php echo e(url('hrm/employee/hr-addemployee')); ?>" class="btn btn-primary mr-3">Add New Employee</a>
                 </div>
             </div>
         </div>
@@ -31,11 +29,11 @@
             <div class="card box-widget widget-user">
                 <div class="card-body text-center">
                     <div class="widget-user-image mx-auto text-center">
-                        <img  class="avatar avatar-xxl brround rounded-circle" alt="img" src="{{URL::asset('assets/images/users/1.jpg')}}">
+                        <img  class="avatar avatar-xxl brround rounded-circle" alt="img" src="<?php echo e(URL::asset('assets/images/users/1.jpg')); ?>">
                     </div>
                     <div class="pro-user mt-3">
-                        <h5 class="pro-user-username text-dark mb-1 fs-16">{{ $current_employee->first_name . ' '.$current_employee->last_name }}</h5>
-                        <h6 class="pro-user-desc text-muted fs-12">{{ $current_employee->designation }}</h6>
+                        <h5 class="pro-user-username text-dark mb-1 fs-16"><?php echo e($current_employee->first_name . ' '.$current_employee->last_name); ?></h5>
+                        <h6 class="pro-user-desc text-muted fs-12"><?php echo e($current_employee->designation); ?></h6>
                     </div>
                     <div class="star-ratings start-ratings-main mb-0 clearfix">
                         <div class="stars stars-example-fontawesome star-sm">
@@ -49,35 +47,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="card-footer p-0">
-                    <div class="row">
-                        <div class="col-4 text-center py-5 border-right">
-                            <h5 class="fs-12 font-weight-semibold mb-3">January</h5>
-                            <h5 class="mb-2">
-                                <span class="fs-18 text-success">22</span>
-                                <span class="my-auto fs-9 font-weight-normal  ml-1 mr-1">/</span>
-                                <span class="fs-18 font-weight-semibold text-dark">31</span>
-                            </h5>
-                            <h5 class="fs-12 mb-0">Attendance</h5>
-                        </div>
-                        <div class="col-4  py-5 text-center border-right">
-                            <h5 class="fs-12 font-weight-semibold mb-3">Year-2021</h5>
-                            <h5 class="mb-2">
-                                <span class="fs-18 text-orange">0</span>
-                                <span class="my-auto fs-9 font-weight-normal  ml-1 mr-1">/</span>
-                                <span class="fs-18 font-weight-semibold text-dark">41</span>
-                            </h5>
-                            <h5 class="fs-12 mb-0">Leaves</h5>
-                        </div>
-                        <div class="col-4 text-center py-5">
-                            <h5 class="fs-12 font-weight-semibold mb-3">Year-2021</h5>
-                            <h5 class="mb-2">
-                                <span class="fs-18 text-primary">0</span>
-                            </h5>
-                            <h5 class="fs-12 mb-0">Awards</h5>
-                        </div>
-                    </div>
-                </div> --}}
+                
             </div>
             <div class="card">
                 <div class="card-header  border-0">
@@ -135,14 +105,13 @@
                     <ul class="nav panel-tabs">
                         <li class="ml-4"><a href="#tab5" class="active"  data-toggle="tab">Personal Details</a></li>
                         <li><a href="#tab6"  data-toggle="tab">Company Details</a></li>
-                        {{-- <li><a href="#tab7" data-toggle="tab">Bank Details</a></li>
-                        <li><a href="#tab8" data-toggle="tab">Upload Documents</a></li> --}}
+                        
                     </ul>
                 </div>
             </div>
             <div class="panel-body tabs-menu-body hremp-tabs1 p-0">
-                <form method="POST" id="em_form" action="{{ url('hrm/employee/employee-update') }}" enctype="multipart/form-data">
-                    @csrf
+                <form method="POST" id="em_form" action="<?php echo e(url('hrm/employee/employee-update')); ?>" enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
                     <div class="tab-content">               
                         <div class="tab-pane active" id="tab5">
                             <div class="card-body">
@@ -155,12 +124,12 @@
                                         <div class="col-md-9">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control mb-md-0 mb-5" name="first_name" value="{{ $current_employee->first_name}}">
-                                                    <input type="text" class="form-control mb-md-0 mb-5" name="current_employee_id" value="{{ $current_employee->id}}" hidden readonly>
+                                                    <input type="text" class="form-control mb-md-0 mb-5" name="first_name" value="<?php echo e($current_employee->first_name); ?>">
+                                                    <input type="text" class="form-control mb-md-0 mb-5" name="current_employee_id" value="<?php echo e($current_employee->id); ?>" hidden readonly>
                                                     <span class="text-muted"></span>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control"  name="last_name" value="{{ $current_employee->last_name}}">
+                                                    <input type="text" class="form-control"  name="last_name" value="<?php echo e($current_employee->last_name); ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -172,7 +141,7 @@
                                             <label class="form-label mb-0 mt-2">Phone Number</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control"  name="phone_number" value="{{ $current_employee->phone_number}}">
+                                            <input type="text" class="form-control"  name="phone_number" value="<?php echo e($current_employee->phone_number); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -182,7 +151,7 @@
                                             <label class="form-label mb-0 mt-2">Emergency Contact Number</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control"  name="contact_number" value="{{ $current_employee->contact_number}}">
+                                            <input type="text" class="form-control"  name="contact_number" value="<?php echo e($current_employee->contact_number); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -192,7 +161,7 @@
                                             <label class="form-label mb-0 mt-2">Date Of Birth</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control fc-datepicker" name="birthday"  value="{{ $current_employee->birthday}}">
+                                            <input type="text" class="form-control fc-datepicker" name="birthday"  value="<?php echo e($current_employee->birthday); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -204,15 +173,15 @@
                                         <div class="col-md-9">
                                             <div class="custom-controls-stacked d-md-flex">
                                                 <label class="custom-control custom-radio mr-4">
-                                                    <input type="radio" class="custom-control-input" name="gender" value="Male" @if ($current_employee->gender=="Male")
+                                                    <input type="radio" class="custom-control-input" name="gender" value="Male" <?php if($current_employee->gender=="Male"): ?>
                                                         checked
-                                                    @endif>
+                                                    <?php endif; ?>>
                                                     <span class="custom-control-label">Male</span>
                                                 </label>
                                                 <label class="custom-control custom-radio">
-                                                    <input type="radio" class="custom-control-input" name="gender" value="Female" @if ($current_employee->gender=="Female")
+                                                    <input type="radio" class="custom-control-input" name="gender" value="Female" <?php if($current_employee->gender=="Female"): ?>
                                                     checked
-                                                    @endif>
+                                                    <?php endif; ?>>
                                                     <span class="custom-control-label">Female</span>
                                                 </label>
                                             </div>
@@ -227,12 +196,12 @@
                                         <div class="col-md-9">
                                             <select name="marital_status"  class="form-control custom-select select2">
                                                 <option label="Select"></option>
-                                                <option value="Single" @if ($current_employee->marital_status=="Single")
+                                                <option value="Single" <?php if($current_employee->marital_status=="Single"): ?>
                                                     selected
-                                                    @endif>Single</option>
-                                                <option value="Married"@if ($current_employee->marital_status=="Married")
+                                                    <?php endif; ?>>Single</option>
+                                                <option value="Married"<?php if($current_employee->marital_status=="Married"): ?>
                                                     selected
-                                                    @endif>Married</option>
+                                                    <?php endif; ?>>Married</option>
                                             </select>
                                         </div>
                                     </div>
@@ -262,7 +231,7 @@
                                             <label class="form-label mb-0 mt-2">Email</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control"  name="email" value="{{ $current_employee->birthday}}">
+                                            <input type="text" class="form-control"  name="email" value="<?php echo e($current_employee->birthday); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -272,7 +241,7 @@
                                             <label class="form-label mb-0 mt-2">Present Address</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea rows="3" class="form-control" name="present_address">{{ $current_employee->present_address}}</textarea>
+                                            <textarea rows="3" class="form-control" name="present_address"><?php echo e($current_employee->present_address); ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -282,7 +251,7 @@
                                             <label class="form-label mb-0 mt-2">Permanent Address</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <textarea rows="3" class="form-control" name="permanet_address">{{ $current_employee->permanet_address}}</textarea>
+                                            <textarea rows="3" class="form-control" name="permanet_address"><?php echo e($current_employee->permanet_address); ?></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -310,7 +279,7 @@
                                             <label class="form-label mb-0 mt-2">Employee Email</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control"  placeholder="employee email" value="{{ $current_employee->em_email}}">
+                                            <input type="text" class="form-control"  placeholder="employee email" value="<?php echo e($current_employee->em_email); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -320,24 +289,11 @@
                                             <label class="form-label mb-0 mt-2">Password</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="password" class="form-control"  name="em_password" value="{{ $current_employee->em_password}}">
+                                            <input type="password" class="form-control"  name="em_password" value="<?php echo e($current_employee->em_password); ?>">
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="form-group mt-7">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <label class="form-label">Email Notification:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <label class="custom-switch">
-                                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description">On/Off</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div> --}}
+                                
                             </div>
                         </div>
                         <div class="tab-pane" id="tab6">
@@ -348,7 +304,7 @@
                                             <label class="form-label mb-0 mt-2">Employee ID</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control"  name="em_number" value="{{ $current_employee->em_number}}" readonly>
+                                            <input type="text" class="form-control"  name="em_number" value="<?php echo e($current_employee->em_number); ?>" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -360,11 +316,11 @@
                                         <div class="col-md-9">
                                             <select name="department_id"  class="form-control custom-select select2"  data-placeholder="Select Department" required>
                                                 <option label="Select Department"></option>
-                                                @foreach($departments as $department)
-                                                    <option value="{!! $department->id !!}" @if ($current_employee->department_id==$department->id)
+                                                <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo $department->id; ?>" <?php if($current_employee->department_id==$department->id): ?>
                                                         selected
-                                                    @endif> {!! $department->department_name !!}</option>
-                                                @endforeach
+                                                    <?php endif; ?>> <?php echo $department->department_name; ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         
                                             </select>
                                         </div>
@@ -376,7 +332,7 @@
                                             <label class="form-label mb-0 mt-2">Designation</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control"  name="designation" value="{{ $current_employee->designation}}">
+                                            <input type="text" class="form-control"  name="designation" value="<?php echo e($current_employee->designation); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -386,7 +342,7 @@
                                             <label class="form-label mb-0 mt-2">Date Of Joining</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control fc-datepicker"  name="join_date" value="{{ $current_employee->join_date}}">
+                                            <input type="text" class="form-control fc-datepicker"  name="join_date" value="<?php echo e($current_employee->join_date); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -396,7 +352,7 @@
                                             <label class="form-label mb-0 mt-2">Resignation Date</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control fc-datepicker"  name="resignation_date" value="{{ $current_employee->resignation_date}}">
+                                            <input type="text" class="form-control fc-datepicker"  name="resignation_date" value="<?php echo e($current_employee->resignation_date); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -406,7 +362,7 @@
                                             <label class="form-label mb-0 mt-2">Termination Date</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control fc-datepicker"  name="termination_date" value="{{ $current_employee->termination_date}}">
+                                            <input type="text" class="form-control fc-datepicker"  name="termination_date" value="<?php echo e($current_employee->termination_date); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -418,7 +374,7 @@
                                             </label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control"  name="credit_leaves" value="{{ $current_employee->credit_leaves}}">
+                                            <input type="text" class="form-control"  name="credit_leaves" value="<?php echo e($current_employee->credit_leaves); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -430,12 +386,12 @@
                                         </div>
                                         <div class="col-md-9">
                                             <select class="form-control custom-select select2" name="salary_type">
-                                                <option value="0" @if ($current_employee->salary_type==0)
+                                                <option value="0" <?php if($current_employee->salary_type==0): ?>
                                                     selected
-                                                @endif>Full-Time</option>
-                                                <option value="1" @if ($current_employee->salary_type==1)
+                                                <?php endif; ?>>Full-Time</option>
+                                                <option value="1" <?php if($current_employee->salary_type==1): ?>
                                                     selected
-                                                @endif>Part-Time</option>
+                                                <?php endif; ?>>Part-Time</option>
                                             </select>
                                         </div>
                                     </div>
@@ -446,7 +402,7 @@
                                             <label class="form-label mb-0 mt-2">Salary</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control"  name="salary_amount" value="{{ $current_employee->salary_amount}}">
+                                            <input type="text" class="form-control"  name="salary_amount" value="<?php echo e($current_employee->salary_amount); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -457,9 +413,9 @@
                                         </div>
                                         <div class="col-md-9">
                                             <label class="custom-switch">
-                                                <input type="checkbox" name="status" class="custom-switch-input" @if ($current_employee->status=="on")
+                                                <input type="checkbox" name="status" class="custom-switch-input" <?php if($current_employee->status=="on"): ?>
                                                     checked
-                                                @endif>
+                                                <?php endif; ?>>
                                                 <span class="custom-switch-indicator"></span>
                                                 <span class="custom-switch-description">Active/Inactive</span>
                                             </label>
@@ -653,9 +609,9 @@
     </div>
     <!-- End Row-->
 
-@endsection('content')
+<?php $__env->stopSection(); ?>
 
-@section('modals')
+<?php $__env->startSection('modals'); ?>
 
     <!--Change password Modal -->
     <div class="modal fade"  id="changepasswordnmodal">
@@ -686,19 +642,19 @@
     </div>
     <!-- End Change password Modal  -->
 
-@endsection('modals')
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
 
     <!-- INTERNAl Rating js-->
-    <script src="{{URL::asset('assets/plugins/rating/js/jquery.barrating.js')}}"></script>
-    <script src="{{URL::asset('assets/plugins/rating/js/custom-ratings.js')}}"></script>
+    <script src="<?php echo e(URL::asset('assets/plugins/rating/js/jquery.barrating.js')); ?>"></script>
+    <script src="<?php echo e(URL::asset('assets/plugins/rating/js/custom-ratings.js')); ?>"></script>
 
     <!-- INTERNAL  Datepicker js -->
-    <script src="{{URL::asset('assets/plugins/date-picker/jquery-ui.js')}}"></script>
+    <script src="<?php echo e(URL::asset('assets/plugins/date-picker/jquery-ui.js')); ?>"></script>
 
     <!-- INTERNAL Index js-->
-    <script src="{{URL::asset('assets/js/hr/hr-empview.js')}}"></script>
+    <script src="<?php echo e(URL::asset('assets/js/hr/hr-empview.js')); ?>"></script>
 
     <script>
         function click_submit(){
@@ -706,4 +662,6 @@
         }
     </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\practice_by_++\Laravel-HRM-Site\resources\views/common_pages/hrm/employee/hr-empview.blade.php ENDPATH**/ ?>

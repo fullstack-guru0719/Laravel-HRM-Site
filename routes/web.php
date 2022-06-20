@@ -149,9 +149,9 @@ Route::prefix('hrm')->group(function () {
 //    employee
     Route::get('/employee/hr-emplist', [EmployeeController::class, 'employee_list']);
     Route::post('/employee/employee-create', [EmployeeController::class, 'employee_create'] );
-    Route::get('/employee/hr-empview', function () {
-        return view('common_pages.hrm.employee.hr-empview');
-    });
+    Route::post('/employee/employee-update', [EmployeeController::class, 'employee_update'] );
+    Route::get('/employee/hr-empview/{id}', [EmployeeController::class, 'employee_view']);
+    Route::get('/employee/hr-empdelete/{id}', [EmployeeController::class, 'employee_delete']);
     Route::get('/employee/hr-addemployee',[EmployeeController::class, 'employee_new']);
 
 //    time-attendance
