@@ -125,13 +125,13 @@
                             <span class="sub-side-menu__label">Job Dashboard</span><i class="sub-angle fa fa-angle-right"></i>
                         </a>
                         <ul class="sub-slide-menu">
-                            <li><a href="<?php echo e(url('job/index')); ?> " class="slide-item">Dashboard</a></li>
-                            <li><a href="<?php echo e(url('job/job-list')); ?> " class="slide-item">Job Lists</a></li>
-                            <li><a href="<?php echo e(url('job/job-view')); ?> " class="slide-item">Job View</a></li>
-                            <li><a href="<?php echo e(url('job/job-application')); ?> " class="slide-item">Job Applications</a></li>
-                            <li><a href="<?php echo e(url('job/job-apply')); ?> " class="slide-item">Apply Job</a></li>
-                            <li><a href="<?php echo e(url('job/job-new')); ?> " class="slide-item">New Job</a></li>
-                            <li><a href="<?php echo e(url('job/job-user')); ?> " class="slide-item">User Profile</a></li>
+                            
+                            <li><a href="<?php echo e(url('job/job-list')); ?> " class="sub-slide-item">Job Lists</a></li>
+                            <li><a href="<?php echo e(url('job/job-view')); ?> " class="sub-slide-item">Job View</a></li>
+                            <li><a href="<?php echo e(url('job/job-application')); ?> " class="sub-slide-item">Job Applications</a></li>
+                            <li><a href="<?php echo e(url('job/job-apply')); ?> " class="sub-slide-item">Apply Job</a></li>
+                            <li><a href="<?php echo e(url('job/job-new')); ?> " class="sub-slide-item">New Job</a></li>
+                            <li><a href="<?php echo e(url('job/job-user')); ?> " class="sub-slide-item">User Profile</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -171,21 +171,7 @@
 
 
 
-            <li class="slide">
-                <a class="side-menu__item" data-toggle="slide" href="#">
-                    <i class="feather feather-briefcase sidemenu_icon"></i>
-                    <span class="side-menu__label">Job Dashboard</span><i class="angle fa fa-angle-right"></i>
-                </a>
-                <ul class="slide-menu">
-                    <li><a href="<?php echo e(url('job/index')); ?> " class="slide-item">Dashboard</a></li>
-                    <li><a href="<?php echo e(url('job/job-list')); ?> " class="slide-item">Job Lists</a></li>
-                    <li><a href="<?php echo e(url('job/job-view')); ?> " class="slide-item">Job View</a></li>
-                    <li><a href="<?php echo e(url('job/job-application')); ?> " class="slide-item">Job Applications</a></li>
-                    <li><a href="<?php echo e(url('job/job-apply')); ?> " class="slide-item">Apply Job</a></li>
-                    <li><a href="<?php echo e(url('job/job-new')); ?> " class="slide-item">New Job</a></li>
-                    <li><a href="<?php echo e(url('job/job-user')); ?> " class="slide-item">User Profile</a></li>
-                </ul>
-            </li>
+            
             <?php if(Illuminate\Support\Facades\Auth::user()->test_role=="admin"): ?>
 
             <li class="slide">
@@ -194,7 +180,7 @@
                     <span class="side-menu__label">Super Admin</span><i class="angle fa fa-angle-right"></i>
                 </a>
                 <ul class="slide-menu">
-                    <li><a href="<?php echo e(url('super/index')); ?> " class="slide-item">Dashboard</a></li>
+                    
                     <li><a href="<?php echo e(url('super/super-company')); ?> " class="slide-item">Companies</a></li>
                     <li><a href="<?php echo e(url('super/super-subscription')); ?> " class="slide-item">Subscription Plans</a></li>
                     <li><a href="<?php echo e(url('super/super-invoices')); ?> " class="slide-item">Invoices</a></li>
