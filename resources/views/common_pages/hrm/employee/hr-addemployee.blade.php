@@ -49,11 +49,11 @@
                                             <div class="col-md-9">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <input type="text" class="form-control mb-md-0 mb-5" name="first_name" placeholder="First Name">
+                                                        <input type="text" class="form-control mb-md-0 mb-5" name="first_name" placeholder="First Name" required>
                                                         <span class="text-muted"></span>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+                                                        <input type="text" class="form-control" name="last_name" placeholder="Last Name" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -65,7 +65,7 @@
                                                 <label class="form-label mb-0 mt-2">Phone Number</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="phone_number" placeholder="Phone Number">
+                                                <input type="text" class="form-control" name="phone_number" placeholder="Phone Number" required>
                                             </div>
                                         </div>
                                     </div>
@@ -75,7 +75,7 @@
                                                 <label class="form-label mb-0 mt-2">Emergency Contact Number</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="contact_number" placeholder="Contact Number01">
+                                                <input type="text" class="form-control" name="contact_number" placeholder="Contact Number01" >
                                             </div>
                                         </div>
                                     </div>
@@ -85,7 +85,7 @@
                                                 <label class="form-label mb-0 mt-2">Date Of Birth</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control fc-datepicker" name="birthday" placeholder="DD-MM-YYY">
+                                                <input type="text" class="form-control fc-datepicker" name="birthday" placeholder="DD-MM-YYY" required>
                                             </div>
                                         </div>
                                     </div>
@@ -97,7 +97,7 @@
                                             <div class="col-md-9">
                                                 <div class="custom-controls-stacked d-md-flex">
                                                     <label class="custom-control custom-radio mr-4">
-                                                        <input type="radio" class="custom-control-input" name="gender" value="Male">
+                                                        <input type="radio" class="custom-control-input" name="gender" value="Male" >
                                                         <span class="custom-control-label">Male</span>
                                                     </label>
                                                     <label class="custom-control custom-radio">
@@ -114,7 +114,7 @@
                                                 <label class="form-label mb-0 mt-2">Marital Status</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <select name="marital_status"  class="form-control custom-select select2" data-placeholder="Select">
+                                                <select name="marital_status"  class="form-control custom-select select2" data-placeholder="Select" required>
                                                     <option label="Select"></option>
                                                     <option value="Single">Single</option>
                                                     <option value="Married">Married</option>
@@ -128,7 +128,7 @@
                                                 <label class="form-label mb-0 mt-2">Blood Group</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <select name="blood_group"  class="form-control custom-select select2" data-placeholder="Select Group">
+                                                <select name="blood_group"  class="form-control custom-select select2" data-placeholder="Select Group" required>
                                                     <option label="Select Group"></option>
                                                     <option value="A+">A+</option>
                                                     <option value="B+">B+</option>
@@ -148,7 +148,7 @@
                                                 <label class="form-label mb-0 mt-2">Email</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" name="email" class="form-control"  placeholder="email">
+                                                <input type="text" name="email" class="form-control"  placeholder="email" required>
                                             </div>
                                         </div>
                                     </div>
@@ -158,7 +158,7 @@
                                                 <label class="form-label mb-0 mt-2">Present Address</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <textarea rows="3" name="present_address" class="form-control" placeholder="Address"></textarea>
+                                                <textarea rows="3" name="present_address" class="form-control" placeholder="Address" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -196,7 +196,7 @@
                                                 <label class="form-label mb-0 mt-2">Employee Email</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="em_email" placeholder="employee email">
+                                                <input type="text" class="form-control" name="em_email" placeholder="employee email" >
                                             </div>
                                         </div>
                                     </div>
@@ -206,7 +206,7 @@
                                                 <label class="form-label mb-0 mt-2">Password</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="password" class="form-control" name="em_password" placeholder="password">
+                                                <input type="password" class="form-control" name="em_password" placeholder="password" >
                                             </div>
                                         </div>
                                     </div>
@@ -227,7 +227,7 @@
                                 </div> 
                         </div>
                         <div class="tab-pane" id="tab6">
-                            <form>
+                  
                                 <div class="card-body">
                                     <div class="form-group">
                                         <div class="row">
@@ -235,7 +235,7 @@
                                                 <label class="form-label mb-0 mt-2">Employee ID</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="em_number" value="{{ $em_number }}" readonly>
+                                                <input type="text" class="form-control" name="em_number" value="{{ $em_number }}" readonly required>
                                             </div>
                                         </div>
                                     </div>
@@ -261,7 +261,7 @@
                                                 <label class="form-label mb-0 mt-2">Designation</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="designation" placeholder="Designation">
+                                                <input type="text" class="form-control" name="designation" placeholder="Designation" >
                                             </div>
                                         </div>
                                     </div>
@@ -271,7 +271,7 @@
                                                 <label class="form-label mb-0 mt-2">Date Of Joining</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control fc-datepicker" name="join_date" placeholder="DD-MM-YYYY">
+                                                <input type="text" class="form-control fc-datepicker" name="join_date" placeholder="DD-MM-YYYY" required>
                                             </div>
                                         </div>
                                     </div>
@@ -281,7 +281,7 @@
                                                 <label class="form-label mb-0 mt-2">Resignation Date</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control fc-datepicker" name="resignation_date" placeholder="DD-MM-YYYY">
+                                                <input type="text" class="form-control fc-datepicker" name="resignation_date" placeholder="DD-MM-YYYY" required>
                                             </div>
                                         </div>
                                     </div>
@@ -291,7 +291,7 @@
                                                 <label class="form-label mb-0 mt-2">Termination Date</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control fc-datepicker" name="termination_date" placeholder="DD-MM-YYYY">
+                                                <input type="text" class="form-control fc-datepicker" name="termination_date" placeholder="DD-MM-YYYY" >
                                             </div>
                                         </div>
                                     </div>
@@ -299,11 +299,11 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <label class="form-label mb-0 mt-2">Credit Leaves
-                                                    <span class="form-help" data-toggle="tooltip" data-placement="top" title="Unused leaves for the Employee">?</span>
+                                                    <span class="form-help" data-toggle="tooltip" data-placement="top" title="Unused leaves for the Employee" >?</span>
                                                 </label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="credit_leaves" placeholder="0">
+                                                <input type="text" class="form-control" name="credit_leaves" placeholder="0" >
                                             </div>
                                         </div>
                                     </div>
@@ -314,7 +314,7 @@
                                                 <label class="form-label mb-0 mt-2">Type</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <select name="salary_type"  class="form-control custom-select select2" name="salary_type" data-placeholder="Select Type">
+                                                <select name="salary_type"  class="form-control custom-select select2" name="salary_type" data-placeholder="Select Type" required>
                                                     <option label="Select Type"></option>
                                                     <option value="0">Full-Time</option>
                                                     <option value="1">Part-Time</option>
@@ -328,7 +328,7 @@
                                                 <label class="form-label mb-0 mt-2">Salary</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="salary_amount" placeholder="$Salary">
+                                                <input type="text" class="form-control" name="salary_amount" placeholder="$Salary" required>
                                             </div>
                                         </div>
                                     </div>
@@ -347,7 +347,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                                <div class=" text-right">
+                                    <button onclick="click_submit()" class="btn btn-primary">Save</button>
+                                    <a href="{{ url('hrm/employee/hr-emplist') }}" class="btn btn-danger">Cancle</a>
+                                </div>
                             
                         </div>
                         {{-- <div class="tab-pane" id="tab7">
@@ -525,10 +528,7 @@
                             </div>
                         </div> --}}
                     </div>
-                    <div class=" text-right">
-                        <button onclick="click_submit()" class="btn btn-primary">Save</button>
-                        <a href="#" class="btn btn-danger">Cancle</a>
-                    </div>
+                    
                 </form>
             </div>
         </div>

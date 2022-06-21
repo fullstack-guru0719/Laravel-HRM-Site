@@ -156,7 +156,6 @@
                             <h2 class="mb-4 font-weight-semibold">Description</h2>
                             <div class="main-profile-bio mb-0">
                                 <p>{!! $current_task->description !!}</p>
-                            
                             </div>
                         </div>
                     </div>

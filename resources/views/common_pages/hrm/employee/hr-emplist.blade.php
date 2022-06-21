@@ -138,7 +138,7 @@
                                     <td>@if ($employee->status=="on")
                                             <span class="badge badge-success">Active</span>
                                             @else
-                                            <span class="badge badge-wrong">Inctive</span>
+                                            <span class="badge badge-danger">Inctive</span>
                                         @endif
                                         
                                     </td>

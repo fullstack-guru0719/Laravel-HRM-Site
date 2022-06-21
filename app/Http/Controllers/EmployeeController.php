@@ -42,7 +42,6 @@ class EmployeeController extends Controller
         $user = Auth::user();
         $updated_log = $current_employee->updated_log .'deleted by '.$user->id.' / ';
         $current_employee->update(['em_allowed'=>0,'updated_log'=>$updated_log]);
-        $employees = Employee::where('em_allowed',1)->get();
         return redirect()->back();
     }
 
@@ -189,7 +188,7 @@ class EmployeeController extends Controller
         $salary_amount = $request->salary_amount;
         $status = $request->status;
 
-        Employee::find($current_employee_id)->create([
+        Employee::find($current_employee_id)->update([
             'updated_log'=>$updated_log,
             'first_name'=>$first_name,
             'last_name'=>$last_name,

@@ -22,10 +22,7 @@
         <div class="page-rightheader ml-md-auto">
             <div class="d-flex align-items-end flex-wrap my-auto right-content breadcrumb-right">
                 <div class="btn-list">
-                    <a href="job/job-new" class="btn btn-primary"><i class="feather feather-plus fs-15 my-auto mr-2"></i>Add New Job</a>
-                    <button  class="btn btn-light" data-toggle="tooltip" data-placement="top" title="E-mail"> <i class="feather feather-mail"></i> </button>
-                    <button  class="btn btn-light" data-placement="top" data-toggle="tooltip" title="Contact"> <i class="feather feather-phone-call"></i> </button>
-                    <button  class="btn btn-primary" data-placement="top" data-toggle="tooltip" title="Info"> <i class="feather feather-info"></i> </button>
+                    <a href="<?php echo e(url('job/job-new')); ?>" class="btn btn-primary"><i class="feather feather-plus fs-15 my-auto mr-2"></i>Add New Job</a>
                 </div>
             </div>
         </div>
@@ -36,68 +33,6 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-xl-5 col-md-12">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label">From:</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="feather feather-calendar"></i>
-                                                </div>
-                                            </div><input class="form-control fc-datepicker" placeholder="DD-MM-YYYY" type="text">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label">To:</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="feather feather-calendar"></i>
-                                                </div>
-                                            </div><input class="form-control fc-datepicker" placeholder="DD-MM-YYYY" type="text">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-5 col-md-12">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label">Select Job Type:</label>
-                                        <select name="attendance"  class="form-control custom-select select2" data-placeholder="Select Job Type">
-                                            <option label="Select Job Type"></option>
-                                            <option value="1">Full-Time</option>
-                                            <option value="2">Part-Time</option>
-                                            <option value="3">Freelancer</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label">Select Status:</label>
-                                        <select name="attendance"  class="form-control custom-select select2" data-placeholder="Select Status">
-                                            <option label="Select Status"></option>
-                                            <option value="1">Active</option>
-                                            <option value="2">InActive</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-md-12">
-                            <div class="form-group mt-5">
-                                <a href="#" class="btn btn-primary btn-block">Search</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table  table-vcenter text-nowrap table-bordered border-bottom" id="job-list">
@@ -114,28 +49,35 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>01</td>
-                                <td>
-                                    <a href="#">Senior PHP Developer</a>
-                                </td>
-                                <td>Full-Time</td>
-                                <td>12-01-2021</td>
-                                <td>24-01-2021</td>
-                                <td>25-01-2021</td>
-                                <td>
-                                    <span class="badge badge-success">Active</span>
-                                </td>
-                                <td>
-                                    <div class="d-flex">
-                                        <a href="<?php echo e(url('job/job-view')); ?>" class="action-btns1" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"><i class="feather feather-eye text-primary"></i></a>
-                                        <a href="#" class="action-btns1" data-toggle="modal" data-target="#editjobtmodal">
-                                            <i class="feather feather-edit-2  text-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></i>
-                                        </a>
-                                        <a href="#" class="action-btns1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="feather feather-trash-2 text-danger"></i></a>
-                                    </div>
-                                </td>
-                            </tr>
+                                <?php $__currentLoopData = $jobs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $job): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <tr>
+                                    <td><?php echo e($job->job_number); ?></td>
+                                    <td>
+                                        <a href="#"><?php echo e($job->job_position); ?></a>
+                                    </td>
+                                    <td><?php echo e($job->job_type); ?></td>
+                                    <td><?php echo e($job->posted_date); ?></td>
+                                    <td><?php echo e($job->last_apply_date); ?></td>
+                                    <td><?php echo e($job->close_date); ?></td>
+                                    <td>
+                                        <?php if($job->status==1): ?>
+                                            <span class="badge badge-success">Active</span>
+                                        <?php else: ?>
+                                        <span class="badge badge-danger">InActive</span>
+                                        <?php endif; ?>
+                                        
+                                    </td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a href="<?php echo e(url('job/job-view/'.$job->id)); ?>" class="action-btns1" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"><i class="feather feather-eye text-primary"></i></a>
+                                            <a href="<?php echo e(url('job/job-edit/'.$job->id)); ?>" class="action-btns1" >
+                                                <i class="feather feather-edit-2  text-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></i>
+                                            </a>
+                                            <a href="<?php echo e(url('job/job-delete/'.$job->id)); ?>" class="action-btns1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="feather feather-trash-2 text-danger"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
                     </div>

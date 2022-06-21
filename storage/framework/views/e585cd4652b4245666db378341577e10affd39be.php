@@ -1,16 +1,14 @@
-@extends('layouts.app')
-
-@section('styles')
-<link href="{{URL::asset('assets/plugins/jquery-ui/jquery-ui.css')}}" rel="stylesheet" />
+<?php $__env->startSection('styles'); ?>
+<link href="<?php echo e(URL::asset('assets/plugins/jquery-ui/jquery-ui.css')); ?>" rel="stylesheet" />
 
 
 
 <!-- INTERNAl Summernote css -->
-<link rel="stylesheet" href="{{URL::asset('assets/plugins/summernote/summernote-bs4.css')}}">
+<link rel="stylesheet" href="<?php echo e(URL::asset('assets/plugins/summernote/summernote-bs4.css')); ?>">
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <!--Page header-->
     <div class="page-header d-xl-flex d-block">
@@ -20,7 +18,7 @@
         <div class="page-rightheader ml-md-auto">
             <div class="d-flex align-items-end flex-wrap my-auto right-content breadcrumb-right">
                 <div class="btn-list">
-                    <a href="{{ url('job/job-new') }}" class="btn btn-primary"><i class="feather feather-plus fs-15 my-auto mr-2"></i>Add New Job</a>
+                    <a href="<?php echo e(url('job/job-new')); ?>" class="btn btn-primary"><i class="feather feather-plus fs-15 my-auto mr-2"></i>Add New Job</a>
                    </div>
             </div>
         </div>
@@ -37,38 +35,34 @@
                 <div class="card-body pb-0 pt-3">
                     <div>
                         <label class="form-label mb-0">Job Number:</label>
-                        <p class="text-muted">{{ $current_job->job_number }}</p>
+                        <p class="text-muted"><?php echo e($current_job->job_number); ?></p>
                     </div>
                     <div class="mt-3">
                         <label class="form-label mb-0">Experiences:</label>
-                        <p class="text-muted">{{ $current_job->experiences }} Exp</p>
+                        <p class="text-muted"><?php echo e($current_job->experiences); ?> Exp</p>
                     </div>
                     <div class="mt-3">
                         <label class="form-label mb-0">vacancy:</label>
-                        <p class="text-muted">{{ $current_job->no_of_vacancy }}</p>
+                        <p class="text-muted"><?php echo e($current_job->no_of_vacancy); ?></p>
                     </div>
                     <div class="mt-3">
                         <label class="form-label mb-0">Job Type:</label>
-                        <p class="text-muted">{{ $current_job->job_type }}</p>
+                        <p class="text-muted"><?php echo e($current_job->job_type); ?></p>
                     </div>
                     <div class="mt-3">
                         <label class="form-label mb-0">Posted Date:</label>
-                        <p class="text-muted">{{ $current_job->posted_date }}</p>
+                        <p class="text-muted"><?php echo e($current_job->posted_date); ?></p>
                     </div>
                     <div class="mt-3">
                         <label class="form-label mb-0">Laste Date To Apply Date:</label>
-                        <p class="text-muted">{{ $current_job->last_apply_date }}</p>
+                        <p class="text-muted"><?php echo e($current_job->last_apply_date); ?></p>
                     </div>
                     <div class="mt-3">
                         <label class="form-label mb-0">Closed  Date:</label>
-                        <p class="text-muted">{{ $current_job->closed_date }}</p>
+                        <p class="text-muted"><?php echo e($current_job->closed_date); ?></p>
                     </div>
                 </div>
-                {{-- <div class="card-footer border-top-0">
-                    <div class="btn-list">
-                        <a href="{{url('job/job-apply')}}" class="btn btn-primary"><i class="feather feather-check my-auto mr-2"></i>Apply Now</a>
-                    </div>
-                </div> --}}
+                
             </div>
         </div>
         <div class="col-xl-9 col-md-12">
@@ -76,24 +70,22 @@
                 <div class="card-body">
                     <div class="mb-5">
                         <a class="text-dark" href="#">
-                            <h3 class="mb-2">{{ $current_job->job_category }}</h3></a>
+                            <h3 class="mb-2"><?php echo e($current_job->job_category); ?></h3></a>
                         <div class="d-flex">
                             <ul class="mb-0 d-md-flex">
                                 <li class="mr-5">
-                                    <a class="icons" href="#"><i class="si si-briefcase text-muted mr-1"></i> {{ $current_job->company_name }}</a>
+                                    <a class="icons" href="#"><i class="si si-briefcase text-muted mr-1"></i> <?php echo e($current_job->company_name); ?></a>
                                 </li>
                                 <li class="mr-5">
-                                    <a class="icons" href="#"><i class="si si-location-pin text-muted mr-1"></i> {{ $current_job->country }}</a>
+                                    <a class="icons" href="#"><i class="si si-location-pin text-muted mr-1"></i> <?php echo e($current_job->country); ?></a>
                                 </li>
-                                {{-- <li class="mr-5" data-placement="top" data-toggle="tooltip" title="Views">
-                                    <a class="icons" href="#"><i class="si si-eye text-muted mr-1"></i> 765</a>
-                                </li> --}}
+                                
                             </ul>
                         </div>
                     </div>
                     <h5 class="mb-4 font-weight-semibold">Description</h5>
                     <ul class="list-style-disc mb-5">
-                        <p>{!! $current_job->description !!}</p>
+                        <p><?php echo $current_job->description; ?></p>
                      </ul>
                     <h5 class="mb-3 mt-5 font-weight-semibold">Job Details</h5>
                     <div class="table-responsive">
@@ -106,10 +98,10 @@
                                 <td><span class="font-weight-semibold">Role :</span> Front-End Developer</td>
                             </tr>
                             <tr>
-                                <td><span class="font-weight-semibold">Min Salary :</span> {{ $current_job->salary_type }}</td>
+                                <td><span class="font-weight-semibold">Min Salary :</span> <?php echo e($current_job->salary_type); ?></td>
                             </tr>
                             <tr>
-                                <td><span class="font-weight-semibold">Max Salary :</span> {{ $current_job->salary_amount }}</td>
+                                <td><span class="font-weight-semibold">Max Salary :</span> <?php echo e($current_job->salary_amount); ?></td>
                             </tr>
                             <tr>
                                 <td><span class="font-weight-semibold">Job Tags :</span> PHP, Laravel, HTML5, CSS, SCSS</td>
@@ -117,7 +109,7 @@
                             </tbody>
                             <tbody class="col-lg-12 col-xl-6 p-0">
                             <tr>
-                                <td><span class="font-weight-semibold">Job Experience :</span>{{ $current_job->experiences }}</td>
+                                <td><span class="font-weight-semibold">Job Experience :</span><?php echo e($current_job->experiences); ?></td>
                             </tr>
                             <tr>
                                 <td><span class="font-weight-semibold">Languages :</span> English , Hindi</td>
@@ -126,10 +118,10 @@
                                 <td><span class="font-weight-semibold">Locality :</span> USA , UK , India</td>
                             </tr>
                             <tr>
-                                <td><span class="font-weight-semibold">EducationLevel :</span> {{ $current_job->education_level }}</td>
+                                <td><span class="font-weight-semibold">EducationLevel :</span> <?php echo e($current_job->education_level); ?></td>
                             </tr>
                             <tr>
-                                <td><span class="font-weight-semibold">Company :</span> {{ $current_job->company_name }}</td>
+                                <td><span class="font-weight-semibold">Company :</span> <?php echo e($current_job->company_name); ?></td>
                             </tr>
                             </tbody>
                         </table>
@@ -139,10 +131,11 @@
                     <div class="list-id">
                         <div class="row">
                             <div class="col">
-                                <a class="mb-0">Job ID : {{ $current_job->job_number }}</a>
+                                <a class="mb-0">Job ID : <?php echo e($current_job->job_number); ?></a>
                             </div>
                             <div class="col col-auto">
-                                Posted By <a class="mb-0 font-weight-semibold">{{ $current_job->company_name }}</a> / {{ $current_job->posted_date }}
+                                Posted By <a class="mb-0 font-weight-semibold"><?php echo e($current_job->company_name); ?></a> / <?php echo e($current_job->posted_date); ?>
+
                             </div>
                         </div>
                     </div>
@@ -150,8 +143,7 @@
                 <div class="card-body">
                     <div class="icons">
                         <a class="btn btn-primary icons" data-target="#apply" data-toggle="modal" href="#"><i class="si si-check mr-1"></i>Apply</a>
-                        {{-- <a class="btn btn-warning icons" href="#"><i class="si si-share mr-1"></i> Share Job</a>
-                        <a class="btn btn-success icons" href="#"><i class="si si-printer mr-1"></i> Print</a> --}}
+                        
                     </div>
                 </div>
             </div>
@@ -159,9 +151,9 @@
     </div>
     <!-- End Row -->
 
-@endsection('content')
+<?php $__env->stopSection(); ?>
 
-@section('modals')
+<?php $__env->startSection('modals'); ?>
 
 
     <!-- Apply Job Modal -->
@@ -175,8 +167,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" id="apply_form" action="{{ url('job/job-apply') }}" enctype="multipart/form-data">
-                        @csrf
+                    <form method="POST" id="apply_form" action="<?php echo e(url('job/job-apply')); ?>" enctype="multipart/form-data">
+                        <?php echo csrf_field(); ?>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
@@ -245,12 +237,12 @@
     </div>
     <!-- Apply Job Modal-->
 
-@endsection('modals')
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
 
-    <script src="{{URL::asset('assets/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-    <script src="{{URL::asset('assets/plugins/summernote/summernote-bs4.js')}}"></script>
+    <script src="<?php echo e(URL::asset('assets/plugins/jquery-ui/jquery-ui.min.js')); ?>"></script>
+    <script src="<?php echo e(URL::asset('assets/plugins/summernote/summernote-bs4.js')); ?>"></script>
 
     <script>
         $(document).ready(function() {
@@ -278,4 +270,6 @@
         }
     </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\practice_by_++\Laravel-HRM-Site\resources\views/common_pages/job-dashboard/job-view.blade.php ENDPATH**/ ?>

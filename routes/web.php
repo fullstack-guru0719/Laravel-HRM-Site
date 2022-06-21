@@ -8,6 +8,7 @@ use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\WorkOrderController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\JobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,24 +113,16 @@ Route::prefix('job')->group(function () {
     Route::get('/index', function () {
         return view('common_pages.job-dashboard.index');
     });
-    Route::get('/job-application', function () {
-        return view('common_pages.job-dashboard.job-application');
-    });
-    Route::get('/job-apply', function () {
-        return view('common_pages.job-dashboard.job-apply');
-    });
-    Route::get('/job-list', function () {
-        return view('common_pages.job-dashboard.job-list');
-    });
-    Route::get('/job-new', function () {
-        return view('common_pages.job-dashboard.job-new');
-    });
-    Route::get('/job-user', function () {
-        return view('common_pages.job-dashboard.job-user');
-    });
-    Route::get('/job-view', function () {
-        return view('common_pages.job-dashboard.job-view');
-    });
+    Route::get('/job-application', [JobController::class, 'job_application']);
+    Route::post('/job-apply',[JobController::class, 'job_apply']);
+    Route::get('/job-list', [JobController::class, 'job_list']);
+    Route::get('/job-new', [JobController::class, 'job_new']);
+    Route::post('/job-create', [JobController::class, 'job_create']);
+    Route::post('/job-update', [JobController::class, 'job_update']);
+    Route::get('/job-user',[JobController::class, 'job_user']);
+    Route::get('/job-view/{id}',[JobController::class, 'job_view']);
+    Route::get('/job-edit/{id}',[JobController::class, 'job_edit']);
+    Route::get('/job-delete/{id}',[JobController::class, 'job_delete']);
 
 
 });
