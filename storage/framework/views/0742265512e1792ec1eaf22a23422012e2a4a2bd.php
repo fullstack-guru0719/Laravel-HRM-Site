@@ -29,7 +29,7 @@
             <div class="card box-widget widget-user">
                 <div class="card-body text-center">
                     <div class="widget-user-image mx-auto text-center">
-                        <img  class="avatar avatar-xxl brround rounded-circle" alt="img" src="<?php echo e(URL::asset('assets/images/users/1.jpg')); ?>">
+                        <img  class="avatar avatar-xxl brround rounded-circle" alt="img" src="<?php echo e(URL::asset('/images/'.$current_employee->photo)); ?>">
                     </div>
                     <div class="pro-user mt-3">
                         <h5 class="pro-user-username text-dark mb-1 fs-16"><?php echo e($current_employee->first_name . ' '.$current_employee->last_name); ?></h5>
@@ -265,7 +265,7 @@
                                                 <input type="text" class="form-control border-right-0 browse-file" placeholder="choose" readonly>
                                                 <label class="input-group-append mb-0">
                                                     <span class="btn ripple btn-primary">
-                                                        Browse <input type="file" class="file-browserinput"  style="display: none;" multiple>
+                                                        Browse <input type="file" name="image" class="file-browserinput"  style="display: none;">
                                                     </span>
                                                 </label>
                                             </div>
@@ -601,7 +601,7 @@
                     </div>
                     <div class=" text-right">
                         <button onclick="click_submit()" class="btn btn-primary">Update</button>
-                        <a href="#" class="btn btn-danger">Cancle</a>
+                        <a href="<?php echo e(url('hrm/employee/hr-emplist')); ?>" class="btn btn-danger">Cancle</a>
                     </div>
                 </form>
             </div>
@@ -613,34 +613,6 @@
 
 <?php $__env->startSection('modals'); ?>
 
-    <!--Change password Modal -->
-    <div class="modal fade"  id="changepasswordnmodal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Change Password</h5>
-                    <button  class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label class="form-label">New Password</label>
-                        <input type="password" class="form-control" placeholder="password" value="">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Confirm New Password</label>
-                        <input type="password" class="form-control" placeholder="password" value="">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <a href="#" class="btn btn-outline-primary" data-dismiss="modal">Close</a>
-                    <a href="#" class="btn btn-primary">Confirm</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Change password Modal  -->
 
 <?php $__env->stopSection(); ?>
 

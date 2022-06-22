@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use App\Models\Department;
-use App\Models\EmphotoFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -83,6 +82,15 @@ class EmployeeController extends Controller
         if($last_employee!=null){
             $current_index = $last_employee->id +1;
         }
+      
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+    
+        $imageName = time().'.'.$request->image->extension();  
+
+        // $image = base64_encode(file_get_contents($request->file('image')->path()));
+        $request->image->move(public_path('images'), $imageName);
 
         $phone_numebr = $request->phone_number;
         $contact_number = $request->contact_number;
@@ -105,6 +113,7 @@ class EmployeeController extends Controller
         $salary_type = $request->salary_type;
         $salary_amount = $request->salary_amount;
         $status = $request->status;
+
 
         Employee::create([
             'created_id'=>$user->id,
@@ -131,29 +140,11 @@ class EmployeeController extends Controller
             'salary_type' => $salary_type,
             'salary_amount' => $salary_amount,
             'status' => $status,
-
-
+            'photo'=>$imageName,
             'em_allowed'=>1
         ]);
 
-        $validatedData = $request->validate([
-            // 'emphoto_files' => 'required',
-            'files.*' => 'mimes:png,jpg'
-        ]);
 
-        if($request->hasfile('emphoto_files'))
-        {
-            foreach($request->file('emphoto_files') as $key => $file)
-            {
-                $path = $file->store('public/emphoto_files');
-                $name = $file->getClientOriginalName();
-                $insert[$key]['f_name'] = $name;
-                $insert[$key]['f_path'] = $path;
-                $insert[$key]['employee_id'] = $current_index;
-            }
-
-            EmphotoFile::insert($insert);
-        } 
         return redirect('hrm/employee/hr-emplist');
     }
 
@@ -187,7 +178,12 @@ class EmployeeController extends Controller
         $salary_type = $request->salary_type;
         $salary_amount = $request->salary_amount;
         $status = $request->status;
-
+        $imageName = $current_employee->photo;
+        if($request->hasfile('image')){
+            $imageName = time().'.'.$request->image->extension();  
+            // $photo = base64_encode(file_get_contents($request->file('image')->path()));
+            $request->image->move(public_path('images'), $imageName);
+        }
         Employee::find($current_employee_id)->update([
             'updated_log'=>$updated_log,
             'first_name'=>$first_name,
@@ -213,29 +209,11 @@ class EmployeeController extends Controller
             'salary_type' => $salary_type,
             'salary_amount' => $salary_amount,
             'status' => $status,
-
-
+            'photo'=>$imageName,
             'em_allowed'=>1
         ]);
 
-        $validatedData = $request->validate([
-            // 'emphoto_files' => 'required',
-            'files.*' => 'mimes:png,jpg'
-        ]);
 
-        if($request->hasfile('emphoto_files'))
-        {
-            foreach($request->file('emphoto_files') as $key => $file)
-            {
-                $path = $file->store('public/emphoto_files');
-                $name = $file->getClientOriginalName();
-                $insert[$key]['f_name'] = $name;
-                $insert[$key]['f_path'] = $path;
-                $insert[$key]['employee_id'] = $current_employee_id;
-            }
-
-            EmphotoFile::insert($insert);
-        } 
         return redirect('hrm/employee/hr-emplist');
     }
 }

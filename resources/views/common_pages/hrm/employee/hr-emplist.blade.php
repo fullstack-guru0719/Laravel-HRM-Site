@@ -122,7 +122,7 @@
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>
                                         <div class="d-flex">
-                                            <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('assets/images/users/1.jpg')}})"></span>
+                                            <span class="avatar avatar-md brround mr-3" style="background-image: url({{URL::asset('/images/'.$employee->photo)}})"></span>
                                             <div class="mr-3 mt-0 mt-sm-1 d-block">
                                                 <h6 class="mb-1 fs-14">{{ $employee->first_name. ' '.$employee->last_name}}</h6>
                                                 <p class="text-muted mb-0 fs-12">{{ $employee->email }}</p>

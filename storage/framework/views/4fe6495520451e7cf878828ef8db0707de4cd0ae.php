@@ -120,7 +120,7 @@
                                     <td><?php echo e($loop->index + 1); ?></td>
                                     <td>
                                         <div class="d-flex">
-                                            <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('assets/images/users/1.jpg')); ?>)"></span>
+                                            <span class="avatar avatar-md brround mr-3" style="background-image: url(<?php echo e(URL::asset('/images/'.$employee->photo)); ?>)"></span>
                                             <div class="mr-3 mt-0 mt-sm-1 d-block">
                                                 <h6 class="mb-1 fs-14"><?php echo e($employee->first_name. ' '.$employee->last_name); ?></h6>
                                                 <p class="text-muted mb-0 fs-12"><?php echo e($employee->email); ?></p>
@@ -136,7 +136,7 @@
                                     <td><?php if($employee->status=="on"): ?>
                                             <span class="badge badge-success">Active</span>
                                             <?php else: ?>
-                                            <span class="badge badge-wrong">Inctive</span>
+                                            <span class="badge badge-danger">Inctive</span>
                                         <?php endif; ?>
                                         
                                     </td>

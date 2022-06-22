@@ -39,10 +39,6 @@ class Employee extends Model
         'updated_log'
     ];
 
-    public function employeeFiles()
-    {
-        return $this->hasMany(EmployeeFile::class);
-    }
 
     public function department()
     {

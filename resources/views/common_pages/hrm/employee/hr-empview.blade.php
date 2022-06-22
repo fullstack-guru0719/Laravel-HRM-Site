@@ -31,7 +31,7 @@
             <div class="card box-widget widget-user">
                 <div class="card-body text-center">
                     <div class="widget-user-image mx-auto text-center">
-                        <img  class="avatar avatar-xxl brround rounded-circle" alt="img" src="{{URL::asset('assets/images/users/1.jpg')}}">
+                        <img  class="avatar avatar-xxl brround rounded-circle" alt="img" src="{{URL::asset('/images/'.$current_employee->photo)}}">
                     </div>
                     <div class="pro-user mt-3">
                         <h5 class="pro-user-username text-dark mb-1 fs-16">{{ $current_employee->first_name . ' '.$current_employee->last_name }}</h5>
@@ -296,7 +296,7 @@
                                                 <input type="text" class="form-control border-right-0 browse-file" placeholder="choose" readonly>
                                                 <label class="input-group-append mb-0">
                                                     <span class="btn ripple btn-primary">
-                                                        Browse <input type="file" class="file-browserinput"  style="display: none;" multiple>
+                                                        Browse <input type="file" name="image" class="file-browserinput"  style="display: none;">
                                                     </span>
                                                 </label>
                                             </div>

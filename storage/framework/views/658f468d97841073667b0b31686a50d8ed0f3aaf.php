@@ -179,7 +179,7 @@
                                                     <input type="text" class="form-control border-right-0 browse-file" placeholder="choose" readonly>
                                                     <label class="input-group-append mb-0">
                                                         <span class="btn ripple btn-primary">
-                                                            Browse <input type="file" name="emphoto_files[]" class="file-browserinput"  style="display: none;" multiple>
+                                                            Browse <input type="file" name="image" class="file-browserinput"  style="display: none;" required>
                                                         </span>
                                                     </label>
                                                 </div>
