@@ -127,8 +127,8 @@
                         <ul class="sub-slide-menu">
                             {{-- <li><a href="{{url('job/index')}} " class="sub-slide-item">Dashboard</a></li> --}}
                             <li><a href="{{url('job/job-list')}} " class="sub-slide-item">Job Lists</a></li>
-                            <li><a href="{{url('job/job-view')}} " class="sub-slide-item">Job View</a></li>
-                            {{-- <li><a href="{{url('job/job-application')}} " class="sub-slide-item">Job Applications</a></li> --}}
+                            {{-- <li><a href="{{url('job/job-view')}} " class="sub-slide-item">Job View</a></li> --}}
+                            <li><a href="{{url('job/job-application')}} " class="sub-slide-item">Job Applications</a></li>
                             {{-- <li><a href="{{url('job/job-apply')}} " class="sub-slide-item">Apply Job</a></li> --}}
                             <li><a href="{{url('job/job-new')}} " class="sub-slide-item">New Job</a></li>
                             {{-- <li><a href="{{url('job/job-user')}} " class="sub-slide-item">User Profile</a></li> --}}

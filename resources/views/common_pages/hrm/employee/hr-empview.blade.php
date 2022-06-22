@@ -262,7 +262,7 @@
                                             <label class="form-label mb-0 mt-2">Email</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control"  name="email" value="{{ $current_employee->birthday}}">
+                                            <input type="email" class="form-control"  name="email" value="{{ $current_employee->birthday}}">
                                         </div>
                                     </div>
                                 </div>
@@ -310,7 +310,7 @@
                                             <label class="form-label mb-0 mt-2">Employee Email</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control"  placeholder="employee email" value="{{ $current_employee->em_email}}">
+                                            <input type="email" class="form-control"  placeholder="employee email" value="{{ $current_employee->em_email}}">
                                         </div>
                                     </div>
                                 </div>

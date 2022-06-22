@@ -127,8 +127,8 @@
                         <ul class="sub-slide-menu">
                             
                             <li><a href="<?php echo e(url('job/job-list')); ?> " class="sub-slide-item">Job Lists</a></li>
-                            <li><a href="<?php echo e(url('job/job-view')); ?> " class="sub-slide-item">Job View</a></li>
                             
+                            <li><a href="<?php echo e(url('job/job-application')); ?> " class="sub-slide-item">Job Applications</a></li>
                             
                             <li><a href="<?php echo e(url('job/job-new')); ?> " class="sub-slide-item">New Job</a></li>
                             

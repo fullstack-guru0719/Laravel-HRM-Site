@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2022 at 10:31 AM
+-- Generation Time: Jun 22, 2022 at 05:32 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.26
 
@@ -50,23 +50,6 @@ INSERT INTO `departments` (`id`, `created_id`, `updated_log`, `department_name`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `emphoto_files`
---
-
-CREATE TABLE `emphoto_files` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `f_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `f_path` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `emphoto_allowed` int(11) DEFAULT NULL,
-  `updated_log` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `employee_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `employees`
 --
 
@@ -84,7 +67,7 @@ CREATE TABLE `employees` (
   `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `present_address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `permanet_address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `photo` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `em_email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `em_password` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `em_number` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -94,8 +77,8 @@ CREATE TABLE `employees` (
   `resignation_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `termination_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `credit_leaves` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `salary_type` int(191) DEFAULT NULL,
-  `salary_amount` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `salary_type` int(11) DEFAULT NULL,
+  `salary_amount` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `em_allowed` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `updated_log` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -108,30 +91,7 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`id`, `created_id`, `first_name`, `last_name`, `phone_number`, `contact_number`, `birthday`, `gender`, `marital_status`, `blood_group`, `email`, `present_address`, `permanet_address`, `photo`, `em_email`, `em_password`, `em_number`, `department_id`, `designation`, `join_date`, `resignation_date`, `termination_date`, `credit_leaves`, `salary_type`, `salary_amount`, `status`, `em_allowed`, `updated_log`, `created_at`, `updated_at`) VALUES
-(1, 3, 'steven', 'jhonse', '123123', '123123', '18 June 2022', 'Female', 'Married', 'AB+', 'demo@nmosse.com', 'ZOLTA 123', 'adsasdas', NULL, 'sdfds@sdfds.com', 'sdfsdfdsf', 'EM-000001', 2, 'developer', '23 June 2022', '19 June 2022', '09 June 2022', 'sdfdsf', 1, '123', 'on', '1', 'deleted by 3 / deleted by 3 / deleted by 3 / deleted by 3 / deleted by 3 / deleted by 3 / deleted by 3 / deleted by 3 / ', '2022-06-20 13:04:04', '2022-06-20 14:51:32');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `em_companies`
---
-
-CREATE TABLE `em_companies` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `designation` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `join_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `resignation_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `termination_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `credit_leaves` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `salary_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `salary_status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `em_company_allowed` int(11) DEFAULT NULL,
-  `updated_log` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `employee_id` bigint(20) UNSIGNED NOT NULL,
-  `department_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(1, 3, 'first_test12', 'first_test', '123123', '123123123', '26 June 2022', 'Male', 'Married', NULL, '26 June 2022', 'first_test', 'first_test', '1655864165.png', NULL, 'first_test', 'EM-000001', 2, 'first_test', '27 June 2022', '19 June 2022', '13 June 2022', '123', 1, '231231', 'on', '1', 'updated by 3 / updated by 3 / updated by 3 / ', '2022-06-22 00:13:15', '2022-06-22 10:29:07');
 
 -- --------------------------------------------------------
 
@@ -148,6 +108,81 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `job_number` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_id` bigint(20) DEFAULT NULL,
+  `company_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `job_position` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `job_category` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `job_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `no_of_vacancy` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `experiences` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `posted_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_apply_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `close_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gender` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `salary_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `salary_amount` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `education_level` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `job_allowed` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updated_log` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`id`, `job_number`, `created_id`, `company_name`, `job_position`, `job_category`, `job_type`, `no_of_vacancy`, `experiences`, `posted_date`, `last_apply_date`, `close_date`, `gender`, `salary_type`, `salary_amount`, `city`, `state`, `country`, `education_level`, `description`, `status`, `job_allowed`, `updated_log`, `created_at`, `updated_at`) VALUES
+(1, 'JOB-000001', 3, 'test1', 'test', 'UX Designer', 'Full-Time', 'test', '3 yrs', '13-06-2022', '13-06-2022', '17-06-2022', NULL, '12', '42', 'test', 'test', 'test', '123123123', '<p>&nbsp;test1<br></p>', '0', '1', 'updated by 3 / ', '2022-06-21 13:17:13', '2022-06-21 18:30:09'),
+(2, 'JOB-000002', 3, 'second', 'second', 'UX Designer', 'Part-Time', 'test', '5 yrs', '13-06-2022', '07-06-2022', '10-06-2022', 'Male', '123', '3423432', 'second', 'second', 'second', 'second', '<p>second<br></p>', '1', '1', 'deleted by 3 / ', '2022-06-21 13:25:31', '2022-06-21 16:31:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `job_users`
+--
+
+CREATE TABLE `job_users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `job_user_number` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `job_id` bigint(20) UNSIGNED NOT NULL,
+  `created_id` bigint(20) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone_number` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `job_user_allowed` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `resume_name` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `resume_path` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updated_log` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `job_users`
+--
+
+INSERT INTO `job_users` (`id`, `job_user_number`, `job_id`, `created_id`, `name`, `email`, `phone_number`, `description`, `status`, `job_user_allowed`, `resume_name`, `resume_path`, `updated_log`, `created_at`, `updated_at`) VALUES
+(1, 'JOBUSER-000001', 1, 3, 'testApply', 'testApply@sds.com', '1q2313123', '<p>asdsafcsadca</p>', 1, '1', 'tUW82vDPLWs2Yee9f0RzncSL5rHRaj7tGKR8kTBQ.pdf', 'public/resume_files/tUW82vDPLWs2Yee9f0RzncSL5rHRaj7tGKR8kTBQ.pdf', NULL, '2022-06-22 11:55:00', '2022-06-22 12:47:20'),
+(2, 'JOBUSER-000002', 2, 3, 'Second', 'sdfds@sds.com', '123123', '<p>asdasdasd</p>', 0, '1', 'aXzcDeYUFfMB465iAWAjlC3PDoeRYGMTC7JFwWVY.pdf', 'public/resume_files/aXzcDeYUFfMB465iAWAjlC3PDoeRYGMTC7JFwWVY.pdf', NULL, '2022-06-22 13:21:11', '2022-06-22 13:21:11'),
+(3, 'JOBUSER-000003', 2, 3, 'third', 'third@sdfds.com', '12312312', '<p>asdasda</p>', 0, '1', 'CV (Serhii).pdf', 'public/resume_files/ksKTa00rhFKmfbjBQYWLRn2Bp42BW9yaoz1lwZE5.pdf', NULL, '2022-06-22 13:24:56', '2022-06-22 13:24:56');
 
 -- --------------------------------------------------------
 
@@ -259,9 +294,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (18, '2022_06_09_071857_create_project_files_table ', 3),
 (19, '2022_06_09_071859_create_order_files_table', 4),
 (23, '2022_06_14_064141_create_signatures_table', 5),
-(24, '2022_06_03_191321_create_employees_table', 6),
-(25, '2022_06_03_192316_create_em_companies_tables', 6),
-(26, '2022_06_04_071856_create_emphoto_files_table ', 6);
+(27, '2022_06_021_191321_create_jobs_table', 7),
+(30, '2022_06_03_191321_create_employees_table', 8),
+(31, '2022_06_022_191321_create_job_users_table', 9);
 
 -- --------------------------------------------------------
 
@@ -410,8 +445,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('F4G02LRXFjOL0EvlCvsoWehy5vCeATjR6SQoV5FE', 3, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoidFg2QVVQSEJ1SEpGQ1RuSGFrNFpYOGFmZUhCc21uTUUzT0h1d3B1TSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly9sb2NhbGhvc3Q6OTAwMC9qb2Ivam9iLW5ldyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjM7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkRC82N0NYYk1NRU9tbGJ2c0Z5RDYuLnMveHdmZFREOFNxZWV2dlkuMXJSdlFsR2Q3ZTJPaHkiO30=', 1655770122),
-('oCcKwtiObVYKJS7KLdtJVtNUz5C6EAYu8rnr8vcX', 3, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiODRVYmhzc3B2dVVhZUwyUWxtNVE3QmxLSFF1TXdXMkFxRWR2aFlZaiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDc6Imh0dHA6Ly9sb2NhbGhvc3Q6OTAwMC9ocm0vcGF5cm9sbC9oci1hZGRwYXlyb2xsIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MztzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRELzY3Q1hiTU1FT21sYnZzRnlENi4ucy94d2ZkVEQ4U3FlZXZ2WS4xclJ2UWxHZDdlMk9oeSI7fQ==', 1655791828);
+('MCMgC1Ub9gHef5880WEgMMU4wq3a4vVTziqM3dqB', 3, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiZFhFbkJ1MXVVZmtYZDYwT0NoaW43d3B2cFB5UnpOTTZRTDJxME02eiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly9sb2NhbGhvc3Q6OTAwMC9qb2Ivam9iLXZpZXcvMSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjM7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkRC82N0NYYk1NRU9tbGJ2c0Z5RDYuLnMveHdmZFREOFNxZWV2dlkuMXJSdlFsR2Q3ZTJPaHkiO30=', 1655911876);
 
 -- --------------------------------------------------------
 
@@ -586,26 +620,11 @@ ALTER TABLE `departments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `emphoto_files`
---
-ALTER TABLE `emphoto_files`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `emphoto_files_employee_id_foreign` (`employee_id`);
-
---
 -- Indexes for table `employees`
 --
 ALTER TABLE `employees`
-  ADD PRIMARY KEY (`id`,`salary_amount`),
-  ADD KEY `employees_department_id_foreign` (`department_id`);
-
---
--- Indexes for table `em_companies`
---
-ALTER TABLE `em_companies`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `em_companies_employee_id_foreign` (`employee_id`),
-  ADD KEY `em_companies_department_id_foreign` (`department_id`);
+  ADD KEY `employees_department_id_foreign` (`department_id`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -613,6 +632,19 @@ ALTER TABLE `em_companies`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `jobs`
+--
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `job_users`
+--
+ALTER TABLE `job_users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `job_users_job_id_foreign` (`job_id`);
 
 --
 -- Indexes for table `meetings`
@@ -724,28 +756,28 @@ ALTER TABLE `departments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `emphoto_files`
---
-ALTER TABLE `emphoto_files`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `em_companies`
---
-ALTER TABLE `em_companies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `job_users`
+--
+ALTER TABLE `job_users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `meetings`
@@ -763,7 +795,7 @@ ALTER TABLE `meeting_files`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `order_files`
@@ -824,23 +856,16 @@ ALTER TABLE `work_orders`
 --
 
 --
--- Constraints for table `emphoto_files`
---
-ALTER TABLE `emphoto_files`
-  ADD CONSTRAINT `emphoto_files_employee_id_foreign` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `employees`
 --
 ALTER TABLE `employees`
   ADD CONSTRAINT `employees_department_id_foreign` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `em_companies`
+-- Constraints for table `job_users`
 --
-ALTER TABLE `em_companies`
-  ADD CONSTRAINT `em_companies_department_id_foreign` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `em_companies_employee_id_foreign` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `job_users`
+  ADD CONSTRAINT `job_users_job_id_foreign` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `meetings`

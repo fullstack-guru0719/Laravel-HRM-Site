@@ -148,7 +148,7 @@
                                                 <label class="form-label mb-0 mt-2">Email</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" name="email" class="form-control"  placeholder="email" required>
+                                                <input type="email" name="email" class="form-control"  placeholder="email" required>
                                             </div>
                                         </div>
                                     </div>
@@ -196,7 +196,7 @@
                                                 <label class="form-label mb-0 mt-2">Employee Email</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="em_email" placeholder="employee email" >
+                                                <input type="email" class="form-control" name="em_email" placeholder="employee email" >
                                             </div>
                                         </div>
                                     </div>

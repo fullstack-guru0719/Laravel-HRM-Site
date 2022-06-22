@@ -166,72 +166,78 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form method="POST" id="apply_form" action="<?php echo e(url('job/job-apply')); ?>" enctype="multipart/form-data">
-                        <?php echo csrf_field(); ?>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label mb-0 mt-2">Name</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" placeholder="Name" value="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label mb-0 mt-2">Email</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" placeholder="Email" value="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label mb-0 mt-2">Contact Number</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" placeholder="Phone Number" value="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label mb-0 mt-2">Description</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <textarea class="summernote" id="summernote"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label mb-0 mt-2">Upload Resume</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="input-group file-browser">
-                                        <input type="text" class="form-control border-right-0 browse-file" placeholder="choose" readonly value="">
-                                        <label class="input-group-append mb-0">
-                                                    <span class="btn ripple btn-primary">
-                                                        Browse <input type="file" class="file-browserinput"  style="display: none;" multiple>
-                                                    </span>
-                                        </label>
+                <form method="POST" id="apply_form" action="<?php echo e(url('job/job-apply')); ?>" enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
+                    <div class="modal-body">
+                        
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="form-label mb-0 mt-2">Name</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" placeholder="Name" name="name">
+                                        <input type="text" class="form-control" name="current_job_id" value="<?php echo e($current_job->id); ?>" readonly hidden required>
+
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="form-label mb-0 mt-2">Email</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="email" class="form-control" placeholder="Email" name="email" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="form-label mb-0 mt-2">Contact Number</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" placeholder="Phone Number" name="phone_number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="form-label mb-0 mt-2">Description</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <textarea class="summernote" name="description" id="summernote"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="form-label mb-0 mt-2">Upload Resume</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="input-group file-browser">
+                                            <input type="text" class="form-control border-right-0 browse-file" placeholder="choose" readonly>
+                                            <label class="input-group-append mb-0">
+                                                    <span class="btn ripple btn-primary">
+                                                        Browse <input type="file" name="resume" class="file-browserinput"  style="display: none;" required>
+                                                    </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    </div>
+                    <div class="modal-footer">
                     <button  class="btn btn-outline-primary" data-dismiss="modal">Close</button>
-                    <button  class="btn btn-success" onclick="submit_apply()">Apply</button>
-                </div>
+                    
+                    <button  class="btn btn-success" type="submit">Apply</button>
+
+                    </div>
+                </form>
             </div>
         </div>
     </div>

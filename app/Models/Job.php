@@ -34,5 +34,9 @@ class Job extends Model
         'updated_log'
     ];
 
+    public function jobUsers()
+    {
+        return $this->hasMany(JobUser::class);
+    }
 }
 

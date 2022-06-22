@@ -114,12 +114,17 @@ Route::prefix('job')->group(function () {
         return view('common_pages.job-dashboard.index');
     });
     Route::get('/job-application', [JobController::class, 'job_application']);
+    Route::get('/job-application-accept/{id}', [JobController::class, 'job_application_accept']);
+    Route::get('/job-application-reject/{id}', [JobController::class, 'job_application_reject']);
+    Route::get('/job-application-delete/{id}', [JobController::class, 'job_application_delete']);
+    Route::get('/job-application-view/{id}', [JobController::class, 'job_application_view']);
+    Route::get('/job-application-download/{id}', [JobController::class, 'job_application_download']);
     Route::post('/job-apply',[JobController::class, 'job_apply']);
     Route::get('/job-list', [JobController::class, 'job_list']);
     Route::get('/job-new', [JobController::class, 'job_new']);
     Route::post('/job-create', [JobController::class, 'job_create']);
     Route::post('/job-update', [JobController::class, 'job_update']);
-    Route::get('/job-user',[JobController::class, 'job_user']);
+    Route::get('/job-user/{id}',[JobController::class, 'job_user']);
     Route::get('/job-view/{id}',[JobController::class, 'job_view']);
     Route::get('/job-edit/{id}',[JobController::class, 'job_edit']);
     Route::get('/job-delete/{id}',[JobController::class, 'job_delete']);
