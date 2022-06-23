@@ -134,7 +134,7 @@
                     <!-- Tabs -->
                     <ul class="nav panel-tabs">
                         <li class="ml-4"><a href="#tab5" class="active"  data-toggle="tab">Personal Details</a></li>
-                        <li><a href="#tab6"  data-toggle="tab">Company Details</a></li>
+                        <li><a href="#tab6" id="show_submit" data-toggle="tab">Company Details</a></li>
                         {{-- <li><a href="#tab7" data-toggle="tab">Bank Details</a></li>
                         <li><a href="#tab8" data-toggle="tab">Upload Documents</a></li> --}}
                     </ul>
@@ -348,7 +348,7 @@
                                             <label class="form-label mb-0 mt-2">Employee ID</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control"  name="em_number" value="{{ $current_employee->em_number}}" readonly>
+                                            <input type="text" class="form-control"  name="em_number" value="{{ $current_employee->em_number}}" readonly required>
                                         </div>
                                     </div>
                                 </div>
@@ -386,7 +386,7 @@
                                             <label class="form-label mb-0 mt-2">Date Of Joining</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control fc-datepicker"  name="join_date" value="{{ $current_employee->join_date}}">
+                                            <input type="text" class="form-control fc-datepicker"  name="join_date" value="{{ $current_employee->join_date}}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -446,7 +446,7 @@
                                             <label class="form-label mb-0 mt-2">Salary</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control"  name="salary_amount" value="{{ $current_employee->salary_amount}}">
+                                            <input type="text" class="form-control"  name="salary_amount" value="{{ $current_employee->salary_amount}}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -643,8 +643,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class=" text-right">
-                        <button onclick="click_submit()" class="btn btn-primary">Update</button>
+                    <div class=" text-right" id="btn_group" style="display: none;">
+                        {{-- <button onclick="click_submit()" class="btn btn-primary">Save</button> --}}
+                        <button type="submit" class="btn btn-primary">Save</button>
                         <a href="{{ url('hrm/employee/hr-emplist') }}" class="btn btn-danger">Cancle</a>
                     </div>
                 </form>
@@ -673,6 +674,9 @@
     <script src="{{URL::asset('assets/js/hr/hr-empview.js')}}"></script>
 
     <script>
+        // function click_submit(){
+        //     $('#em_form').submit();
+        // }
         function click_submit(){
             $('#em_form').submit();
         }

@@ -28,7 +28,7 @@
                     <!-- Tabs -->
                     <ul class="nav panel-tabs">
                         <li class="ml-4"><a href="#tab5" class="active"  data-toggle="tab">Personal Details</a></li>
-                        <li><a href="#tab6"  data-toggle="tab">Company Details</a></li>
+                        <li><a href="#tab6" id="show_submit" data-toggle="tab">Company Details</a></li>
                         {{-- <li><a href="#tab7" data-toggle="tab">Bank Details</a></li>
                         <li><a href="#tab8" data-toggle="tab">Upload Documents</a></li> --}}
                     </ul>
@@ -226,132 +226,126 @@
                                     </div> --}}
                                 </div> 
                         </div>
-                        <div class="tab-pane" id="tab6">
-                  
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="form-label mb-0 mt-2">Employee ID</label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control" name="em_number" value="{{ $em_number }}" readonly required>
-                                            </div>
+                        <div class="tab-pane" id="tab6">                
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="form-label mb-0 mt-2">Employee ID</label>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="form-label mb-0 mt-2">Department</label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <select name="department_id"  class="form-control custom-select select2"  data-placeholder="Select Department" required>
-                                                    <option label="Select Department"></option>
-                                                    @foreach($departments as $department)
-                                                        <option value="{!! $department->id !!}"> {!! $department->department_name !!}</option>
-                                                    @endforeach
-            
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="form-label mb-0 mt-2">Designation</label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control" name="designation" placeholder="Designation" >
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="form-label mb-0 mt-2">Date Of Joining</label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control fc-datepicker" name="join_date" placeholder="DD-MM-YYYY" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="form-label mb-0 mt-2">Resignation Date</label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control fc-datepicker" name="resignation_date" placeholder="DD-MM-YYYY" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="form-label mb-0 mt-2">Termination Date</label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control fc-datepicker" name="termination_date" placeholder="DD-MM-YYYY" >
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="form-label mb-0 mt-2">Credit Leaves
-                                                    <span class="form-help" data-toggle="tooltip" data-placement="top" title="Unused leaves for the Employee" >?</span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control" name="credit_leaves" placeholder="0" >
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h4 class="mb-5 mt-7 font-weight-bold">Salary</h4>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="form-label mb-0 mt-2">Type</label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <select name="salary_type"  class="form-control custom-select select2" name="salary_type" data-placeholder="Select Type" required>
-                                                    <option label="Select Type"></option>
-                                                    <option value="0">Full-Time</option>
-                                                    <option value="1">Part-Time</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="form-label mb-0 mt-2">Salary</label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control" name="salary_amount" placeholder="$Salary" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group mt-7">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="form-label">Status:</label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <label class="custom-switch">
-                                                    <input type="checkbox" name="status" class="custom-switch-input">
-                                                    <span class="custom-switch-indicator"></span>
-                                                    <span class="custom-switch-description">Active/Inactive</span>
-                                                </label>
-                                            </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="em_number" value="{{ $em_number }}" readonly required>
                                         </div>
                                     </div>
                                 </div>
-                                <div class=" text-right">
-                                    <button onclick="click_submit()" class="btn btn-primary">Save</button>
-                                    <a href="{{ url('hrm/employee/hr-emplist') }}" class="btn btn-danger">Cancle</a>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="form-label mb-0 mt-2">Department</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select name="department_id"  class="form-control custom-select select2"  data-placeholder="Select Department" required>
+                                                <option label="Select Department"></option>
+                                                @foreach($departments as $department)
+                                                    <option value="{!! $department->id !!}"> {!! $department->department_name !!}</option>
+                                                @endforeach
+        
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                            
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="form-label mb-0 mt-2">Designation</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="designation" placeholder="Designation" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="form-label mb-0 mt-2">Date Of Joining</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control fc-datepicker" name="join_date" placeholder="DD-MM-YYYY" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="form-label mb-0 mt-2">Resignation Date</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control fc-datepicker" name="resignation_date" placeholder="DD-MM-YYYY">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="form-label mb-0 mt-2">Termination Date</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control fc-datepicker" name="termination_date" placeholder="DD-MM-YYYY" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="form-label mb-0 mt-2">Credit Leaves
+                                                <span class="form-help" data-toggle="tooltip" data-placement="top" title="Unused leaves for the Employee" >?</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="credit_leaves" placeholder="0" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4 class="mb-5 mt-7 font-weight-bold">Salary</h4>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="form-label mb-0 mt-2">Type</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select name="salary_type"  class="form-control custom-select select2" name="salary_type" data-placeholder="Select Type">
+                                                <option label="Select Type"></option>
+                                                <option value="0">Full-Time</option>
+                                                <option value="1">Part-Time</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="form-label mb-0 mt-2">Salary</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="salary_amount" placeholder="$Salary" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mt-7">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="form-label">Status:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <label class="custom-switch">
+                                                <input type="checkbox" name="status" class="custom-switch-input">
+                                                <span class="custom-switch-indicator"></span>
+                                                <span class="custom-switch-description">Active/Inactive</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         {{-- <div class="tab-pane" id="tab7">
                             <div class="card-body">
@@ -528,7 +522,11 @@
                             </div>
                         </div> --}}
                     </div>
-                    
+                    <div class=" text-right" id="btn_group" style="display: none;">
+                        {{-- <button onclick="click_submit()" class="btn btn-primary">Save</button> --}}
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a href="{{ url('hrm/employee/hr-emplist') }}" class="btn btn-danger">Cancle</a>
+                    </div>
                 </form>
             </div>
         </div>
@@ -538,7 +536,6 @@
 @endsection('content')
 
 @section('modals')
-
 
 
 @endsection('modals')
@@ -556,9 +553,14 @@
     <script src="{{URL::asset('assets/js/hr/hr-empview.js')}}"></script>
 
     <script>
+        // $("#show_submit").on('click', function() {
+        //     $("#btn_group").show();
+        //     // alert("dsf");
+        // })
         function click_submit(){
             $('#em_form').submit();
         }
     </script>
+
 
 @endsection
