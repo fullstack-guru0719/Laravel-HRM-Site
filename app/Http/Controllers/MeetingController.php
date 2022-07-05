@@ -124,6 +124,22 @@ class MeetingController extends Controller
         $parent = Meeting::find($parent_id);
         return view('common_pages.meeting-dashboard.meeting-view',compact(['parent','children','out_att_name','out_att_email','m_files']));
     }
+    public function meeting_empty($parent_id)
+    {
+        $empty_meetings = Meeting::where('parent_meeting_id',$parent_id)->delete(); 
+        return redirect()->back();
+    }
+
+    public function meeting_restore($parent_id)
+    {
+        $parent = Meeting::find($parent_id);
+        $deleted_name = Auth::user()->name;
+        $updated_log = $parent->updated_log .'restored by '.$deleted_name.' / ';
+        $children = Meeting::where('parent_meeting_id', $parent_id)->where('meeting_allowed','<>',2)
+        ->update(['meeting_allowed'=>1,'updated_log'=>$updated_log]);
+        return redirect()->back();
+    }
+
     public function meeting_delete($parent_id)
     {
         $parent = Meeting::find($parent_id);
@@ -270,7 +286,7 @@ class MeetingController extends Controller
         $out_att_name = $request->out_att_name;
         $out_att_email = $request->out_att_email;
         $parent = Meeting::find($current_meeting_id);
-        Meeting::where('parent_meeting_id',$current_meeting_id)->where('id','>',$current_meeting_id)->where('meeting_allowed',1)->update(['meeting_allowed'=>0]);
+        Meeting::where('parent_meeting_id',$current_meeting_id)->where('id','>',$current_meeting_id)->where('meeting_allowed',1)->update(['meeting_allowed'=>2]);
         $old_children =  Meeting::where('parent_meeting_id',$current_meeting_id)->where('id','>',$current_meeting_id)->where('meeting_allowed',1)->get();
         // return $old_children ;
         $start_time = $request->start_time;
@@ -366,5 +382,32 @@ class MeetingController extends Controller
         $m_file->update(['meeting_file_allowed'=> 0 ,'updated_log'=>$updated_log]);
         return redirect()->back();
     }
-  
+
+    public function deleted_list()
+    {
+        $meetings = [];
+        $out_attendees =[];
+        // $not_started_meetings_ids = DB::table('meetings')->whereDate('start_date','>',$todayDate)->get();
+        
+
+      $parent_ids = DB::table('meetings')->where('meeting_allowed',0)->selectRaw('parent_meeting_id')->groupBy('parent_meeting_id')->get();
+
+        for($i = 0; $i<sizeof($parent_ids);$i++)
+        {
+//            var_dump($parent_ids[$i]->parent_meeting_id);
+            $children = Meeting::where('parent_meeting_id',$parent_ids[$i]->parent_meeting_id)->where('registered',1)->where('meeting_allowed','<>',2)->get();
+            $out_attendees[$parent_ids[$i]->parent_meeting_id] = Meeting::where('parent_meeting_id',$parent_ids[$i]->parent_meeting_id)->where('registered',0)->where('meeting_allowed','<>',2)->first();
+            for ($j =0 ;$j<sizeof($children); $j++)
+            {
+                $meetings[$i][$j] = $children[$j];               
+            }
+            
+        }
+        // return $out_attendees;
+
+        $departments = Department::where('department_allowed',1)->get();
+//        $meetings = Meeting::all();
+        return view('common_pages.meeting-dashboard.deleted-list',compact([
+            'meetings','departments','out_attendees']));
+    }
 }

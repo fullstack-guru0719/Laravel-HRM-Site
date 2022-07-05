@@ -59,6 +59,15 @@ class TaskController extends Controller
 
     }
 
+    public function deleted_list ()
+    {
+        $tasks = Task::where('task_allowed', 0)->get();
+
+        return view('common_pages.task-dashboard.deleted-list',compact([
+            'tasks']));
+
+    }
+
     public function task_view ($id)
     {
         $current_task = Task::find($id);
@@ -214,6 +223,26 @@ class TaskController extends Controller
         $current_task = Task::find($id);
         $updated_log = $current_task->updated_log .'deleted by '.$deleted_name.' / ';
         $current_task->update(['task_allowed'=>0,'updated_log'=>$updated_log]);
+        return redirect()->back();
+    }
+
+
+    public function task_restore($id)
+    {
+        $deleted_name = Auth::user()->name;
+        $current_task = Task::find($id);
+        $updated_log = $current_task->updated_log .'restored by '.$deleted_name.' / ';
+        $current_task->update(['task_allowed'=>1,'updated_log'=>$updated_log]);
+        return redirect()->back();
+    }
+
+
+    public function task_empty($id)
+    {
+        // $deleted_name = Auth::user()->name;
+        $current_task = Task::find($id)->delete();
+        // $updated_log = $current_task->updated_log .'deleted by '.$deleted_name.' / ';
+        // $current_task->update(['task_allowed'=>0,'updated_log'=>$updated_log]);
         return redirect()->back();
     }
 

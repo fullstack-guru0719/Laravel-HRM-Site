@@ -73,6 +73,28 @@ class ProjectController extends Controller
             'projects','departments','all_parent_ids','canceled_parent_ids']));
 
     }
+
+    public function deleted_list ()
+    {
+        $projects = [];
+        $parent_ids = DB::table('projects')->where('project_allowed',0)->selectRaw('parent_project_id')->groupBy('parent_project_id')->get();
+
+        for($i = 0; $i<sizeof($parent_ids);$i++)
+        {
+//            var_dump($parent_ids[$i]->parent_meeting_id);
+            $children = Project::where('parent_project_id',$parent_ids[$i]->parent_project_id)->get();
+            for ($j =0 ;$j<sizeof($children); $j++)
+            {
+                $projects[$i][$j] = $children[$j];
+            }
+        }
+
+        $departments = Department::where('department_allowed',1)->get();
+        return view('common_pages.project-dashboard.deleted-list',compact([
+            'projects','departments']));
+
+    }
+
     public function project_view ($parent_id)
     {
         $children = Project::where('parent_project_id',$parent_id)->where('meeting_allowed',1)->get();
@@ -213,6 +235,23 @@ class ProjectController extends Controller
         $updated_log = $parent->updated_log .'deleted by '.$deleted_name.' / ';
         $children = Project::where('parent_project_id', $parent_id)
         ->update(['project_allowed'=>0,'updated_log'=>$updated_log]);
+        return redirect()->back();
+    }
+
+    public function project_restore($parent_id)
+    {
+        $parent = Project::find($parent_id);
+        $deleted_name = Auth::user()->name;
+        $updated_log = $parent->updated_log .'restored by '.$deleted_name.' / ';
+        $children = Project::where('parent_project_id', $parent_id)
+        ->update(['project_allowed'=>1,'updated_log'=>$updated_log]);
+        return redirect()->back();
+    }
+
+    public function project_empty($parent_id)
+    {
+        $children = Project::where('parent_project_id', $parent_id)
+        ->delete();
         return redirect()->back();
     }
 

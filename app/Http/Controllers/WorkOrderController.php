@@ -77,6 +77,17 @@ class WorkOrderController extends Controller
     }
 
 
+    public function deleted_list()
+    {
+        $todayDate = Carbon::now()->format('Y-m-d');
+
+        $real_orders = WorkOrder::where('work_order_allowed', 0)->get();
+       
+        return view('common_pages.work-order-dashboard.deleted-list',compact([
+        'real_orders'
+        ]));
+    }
+
     public function workOrder_convert($id)
     {
         $current_order = WorkOrder::find($id);
@@ -112,6 +123,22 @@ class WorkOrderController extends Controller
         $current_order = WorkOrder::find($id);
         $updated_log = $current_order->updated_log .'deleted by '.$deleted_name.' / ';
         $current_order->update(['work_order_allowed'=>0,'updated_log'=>$updated_log]);
+        return redirect()->back();
+    }
+
+    public function workOrder_restore($id)
+    {
+        $deleted_name = Auth::user()->name;
+        $current_order = WorkOrder::find($id);
+        $updated_log = $current_order->updated_log .'restored by '.$deleted_name.' / ';
+        $current_order->update(['work_order_allowed'=>1,'updated_log'=>$updated_log]);
+        return redirect()->back();
+    }
+
+    public function workOrder_empty($id)
+    {
+        $current_order = WorkOrder::find($id)->delete();
+    
         return redirect()->back();
     }
 

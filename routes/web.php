@@ -57,6 +57,8 @@ Route::prefix('meeting')->group(function () {
     Route::get('/meeting-convert/{id}', [MeetingController::class, 'meeting_convert']);
     Route::get('/meeting-edit/{id}', [MeetingController::class, 'meeting_edit']);
     Route::get('/meeting-delete/{id}', [MeetingController::class, 'meeting_delete']);
+    Route::get('/meeting-restore/{id}', [MeetingController::class, 'meeting_restore']);
+    Route::get('/meeting-empty/{id}', [MeetingController::class, 'meeting_empty']);
     Route::get('/meeting_file-download/{id}', [MeetingController::class, 'meeting_file_download']);
     Route::get('/meeting_file-delete/{id}', [MeetingController::class, 'meeting_file_delete']);
 
@@ -72,6 +74,8 @@ Route::prefix('workOrder')->group(function () {
     Route::get('/workOrder-convert/{id}', [WorkOrderController::class, 'workOrder_convert']);
     Route::get('/workOrder-view/{id}', [WorkOrderController::class, 'workOrder_view']);
     Route::get('/workOrder-delete/{id}', [WorkOrderController::class, 'workOrder_delete']);
+    Route::get('/workOrder-restore/{id}', [WorkOrderController::class, 'workOrder_restore']);
+    Route::get('/workOrder-empty/{id}', [WorkOrderController::class, 'workOrder_empty']);
     Route::get('/workOrder-edit/{id}', [WorkOrderController::class, 'workOrder_edit']);
     Route::get('/order_file-download/{id}', [WorkOrderController::class, 'order_file_download']);
     Route::get('/order_file-delete/{id}', [WorkOrderController::class, 'order_file_delete']);
@@ -87,6 +91,8 @@ Route::prefix('task')->group(function () {
     Route::get('/task-view/{id}', [TaskController::class, 'task_view']);
     Route::get('/task-edit/{id}', [TaskController::class, 'task_edit']);
     Route::get('/task-delete/{id}', [TaskController::class, 'task_delete']);
+    Route::get('/task-restore/{id}', [TaskController::class, 'task_restore']);
+    Route::get('/task-empty/{id}', [TaskController::class, 'task_empty']);
     Route::get('/task-profile', [TaskController::class, 'task_profile']);
     Route::get('/task-complete', [TaskController::class, 'task_complete']);
     Route::get('/task-hold', [TaskController::class, 'task_hold']);
@@ -105,6 +111,8 @@ Route::prefix('project')->group(function () {
     Route::get('/project-view/{id}', [ProjectController::class, 'project_view']);
     Route::get('/project-edit/{id}', [ProjectController::class, 'project_edit']);
     Route::get('/project-delete/{id}', [ProjectController::class, 'project_delete']);
+    Route::get('/project-restore/{id}', [ProjectController::class, 'project_restore']);
+    Route::get('/project-empty/{id}', [ProjectController::class, 'project_empty']);
     Route::get('/project_file-download/{id}', [ProjectController::class, 'project_file_download']);
     Route::get('/project_file-delete/{id}', [ProjectController::class, 'project_file_delete']);
 });
@@ -128,6 +136,16 @@ Route::prefix('job')->group(function () {
     Route::get('/job-view/{id}',[JobController::class, 'job_view']);
     Route::get('/job-edit/{id}',[JobController::class, 'job_edit']);
     Route::get('/job-delete/{id}',[JobController::class, 'job_delete']);
+
+
+});
+
+
+Route::prefix('recycle')->group(function (){
+    Route::get('/deleted_mom/deleted_list',[MeetingController::class, 'deleted_list']);
+    Route::get('/deleted_project/deleted_list',[ProjectController::class, 'deleted_list']);
+    Route::get('/deleted_task/deleted_list',[TaskController::class, 'deleted_list']);
+    Route::get('/deleted_order/deleted_list',[WorkOrderController::class, 'deleted_list']);
 
 
 });

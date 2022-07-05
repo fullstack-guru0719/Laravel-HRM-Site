@@ -170,50 +170,22 @@
             {{-- HRM End --}}
 
 
-{{--Job start--}}
-            
-            @if(Illuminate\Support\Facades\Auth::user()->test_role=="admin")
-{{-- SuperAdmin--}}
-            <li class="slide">
-                <a class="side-menu__item" data-toggle="slide" href="#">
-                    <i class="feather feather-slack sidemenu_icon"></i>
-                    <span class="side-menu__label">Super Admin</span><i class="angle fa fa-angle-right"></i>
-                </a>
-                <ul class="slide-menu">
-                    {{-- <li><a href="{{url('super/index')}} " class="slide-item">Dashboard</a></li> --}}
-                    <li><a href="{{url('super/super-company')}} " class="slide-item">Companies</a></li>
-                    <li><a href="{{url('super/super-subscription')}} " class="slide-item">Subscription Plans</a></li>
-                    <li><a href="{{url('super/super-invoices')}} " class="slide-item">Invoices</a></li>
-                    <li><a href="{{url('super/super-admins')}} " class="slide-item">Super Admins</a></li>
-                    <li><a href="{{url('super/super-settings')}} " class="slide-item">Settings</a></li>
-                    <li><a href="{{url('super/super-role')}} " class="slide-item">Role Access</a></li>
-                </ul>
-            </li>
-{{-- end superadmin--}}
-            @endif
-
-            {{-- Recycle Bin Start --}}
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="#">
                     <i class="feather feather-shopping-cart sidemenu_icon"></i>
                     <span class="side-menu__label">Recycle Bin</span><i class="angle fa fa-angle-right"></i>
                 </a>
+                <ul class="slide-menu">
+                    {{-- <li><a href="{{url('hrm/index')}} " class="slide-item">Dashboard</a></li> --}}
+                    <li><a href="{{url('recycle/deleted_mom/deleted_list')}} " class="slide-item">Deleted_MOM</a></li>
+                    <li><a href="{{url('recycle/deleted_order/deleted_list')}} " class="slide-item">Deleted_Order</a></li>
+                    <li><a href="{{url('recycle/deleted_task/deleted_list')}} " class="slide-item">Deleted_Task</a></li>
+                    <li><a href="{{url('recycle/deleted_project/deleted_list')}} " class="slide-item">Deleted_Project</a></li>
+                </ul>
             </li>
-            {{-- Recycle Bin End --}}
+           
         </ul>
-        <div class="Annoucement_card">
-            <div class="text-center">
-                <div>
-                    <h5 class="title mt-0 mb-1 ml-2 font-weight-bold tx-12">Announcement</h5>
-                    <div class="bg-layer py-4">
-                        <img src="{{URL::asset('assets/images/photos/announcement-1.png')}}" class="py-3 text-center mx-auto" alt="img">
-                    </div>
-                    <p class="subtext mt-0 mb-0 ml-2 fs-13 text-center my-2">Make an Announcement to Our Employee</p>
-                </div>
-            </div>
-            <button class="btn btn-block btn-primary my-4 fs-12">Create Announcement</button>
-            <button class="btn btn-block btn-outline fs-12">See history</button>
-        </div>
+        
     </div>
 </aside>
 <!--aside closed-->
